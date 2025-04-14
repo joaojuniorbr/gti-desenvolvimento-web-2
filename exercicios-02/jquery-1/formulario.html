@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Diêi Quiur Uí Plãguins</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<link
+			rel="stylesheet"
+			href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css"
+		/>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
+		<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+
+		<link
+			rel="stylesheet"
+			href="https://cdnjs.cloudflare.com/ajax/libs/zxcvbn/4.4.2/zxcvbn.min.js"
+		/>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/pwstrength-bootstrap/3.1.2/pwstrength-bootstrap.min.js"></script>
+	</head>
+
+	<body>
+		<!-- Menu -->
+		<nav class="navbar navbar-inverse">
+			<div class="container-fluid">
+				<div class="navbar-header">
+					<button
+						type="button"
+						class="navbar-toggle"
+						data-toggle="collapse"
+						data-target="#myNavbar"
+					>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+					<a class="navbar-brand" href="#">Plugins JQuery</a>
+				</div>
+				<div class="collapse navbar-collapse" id="myNavbar">
+					<ul class="nav navbar-nav">
+						<li><a href="index.html">Início</a></li>
+						<li><a href="galeria.html">Galeria</a></li>
+						<li><a href="tabela.html">Tabela</a></li>
+						<li class="active"><a href="formulario.html">Formulário</a></li>
+					</ul>
+				</div>
+			</div>
+		</nav>
+		<!-- Menu -->
+
+		<div class="container">
+			<!-- Cabeçalho -->
+			<div class="jumbotron">
+				<h1>JQuery Plugins</h1>
+				<p>Exercícios de aplicação de plugins JQuery</p>
+			</div>
+			<!-- Cabeçalho -->
+
+			<!-- Conteúdo -->
+			<h2>Formulário</h2>
+			<form role="form">
+				<div class="form-group">
+					<label for="email">Email:</label>
+					<input
+						type="email"
+						class="form-control"
+						id="email"
+						placeholder="Digite seu email"
+					/>
+				</div>
+				<div class="form-group">
+					<label for="pwd">Senha:</label>
+					<input
+						type="password"
+						class="form-control password-input"
+						placeholder="Digite sua senha"
+						style="margin-bottom: 10px"
+					/>
+				</div>
+				<button type="submit" class="btn btn-default">Enviar</button>
+			</form>
+		</div>
+		<!-- Conteúdo -->
+
+		<script>
+			$(document).ready(function () {
+				$('.password-input').pwstrength();
+			});
+		</script>
+	</body>
+</html>

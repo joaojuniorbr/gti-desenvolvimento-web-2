@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Diêi Quiur Uí Plãguins</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<link
+			rel="stylesheet"
+			href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css"
+		/>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
+		<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+
+		<link
+			rel="stylesheet"
+			href="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/2.8.3/css/lightgallery-bundle.min.css"
+		/>
+	</head>
+
+	<body>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/2.8.3/lightgallery.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/2.8.3/plugins/thumbnail/lg-thumbnail.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/2.8.3/plugins/zoom/lg-zoom.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/2.8.3/plugins/fullscreen/lg-fullscreen.min.js"></script>
+
+		<!-- Menu -->
+		<nav class="navbar navbar-inverse">
+			<div class="container-fluid">
+				<div class="navbar-header">
+					<button
+						type="button"
+						class="navbar-toggle"
+						data-toggle="collapse"
+						data-target="#myNavbar"
+					>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+					<a class="navbar-brand" href="#">Plugins JQuery</a>
+				</div>
+				<div class="collapse navbar-collapse" id="myNavbar">
+					<ul class="nav navbar-nav">
+						<li><a href="index.html">Início</a></li>
+						<li class="active"><a href="galeria.html">Galeria</a></li>
+						<li><a href="tabela.html">Tabela</a></li>
+						<li><a href="formulario.html">Formulário</a></li>
+					</ul>
+				</div>
+			</div>
+		</nav>
+		<!-- Menu -->
+
+		<div class="container">
+			<!-- Cabeçalho -->
+			<div class="jumbotron">
+				<h1>JQuery Plugins</h1>
+				<p>Exercícios de aplicação de plugins JQuery</p>
+			</div>
+			<!-- Cabeçalho -->
+
+			<!-- Conteúdo -->
+			<h2>Galeria</h2>
+			<section class="wrap-gallery" id="lightgallery">
+				<div class="row">
+					<div class="col-xs-4">
+						<a href="img/1.jpg" class="thumbnail" data-lg-size="1600-2400">
+							<img src="img/1.jpg" class="img-responsive" alt="Miniatura" />
+						</a>
+					</div>
+					<div class="col-xs-4">
+						<a href="img/2.jpg" class="thumbnail" data-lg-size="1600-2400">
+							<img src="img/2.jpg" class="img-responsive" alt="Miniatura" />
+						</a>
+					</div>
+					<div class="col-xs-4">
+						<a href="img/3.jpg" class="thumbnail" data-lg-size="1600-2400">
+							<img src="img/3.jpg" class="img-responsive" alt="Miniatura" />
+						</a>
+					</div>
+
+					<div class="col-xs-4">
+						<a href="img/4.jpg" class="thumbnail" data-lg-size="1600-2400">
+							<img src="img/4.jpg" class="img-responsive" alt="Miniatura" />
+						</a>
+					</div>
+					<div class="col-xs-4">
+						<a href="img/5.jpg" class="thumbnail" data-lg-size="1600-2400">
+							<img src="img/5.jpg" class="img-responsive" alt="Miniatura" />
+						</a>
+					</div>
+					<div class="col-xs-4">
+						<a href="img/6.jpg" class="thumbnail" data-lg-size="1600-2400">
+							<img src="img/6.jpg" class="img-responsive" alt="Miniatura" />
+						</a>
+					</div>
+
+					<div class="col-xs-4">
+						<a href="img/7.jpg" class="thumbnail" data-lg-size="1600-2400">
+							<img src="img/7.jpg" class="img-responsive" alt="Miniatura" />
+						</a>
+					</div>
+					<div class="col-xs-4">
+						<a href="img/8.jpg" class="thumbnail" data-lg-size="1600-2400">
+							<img src="img/8.jpg" class="img-responsive" alt="Miniatura" />
+						</a>
+					</div>
+					<div class="col-xs-4">
+						<a href="img/9.jpg" class="thumbnail" data-lg-size="1600-2400">
+							<img src="img/9.jpg" class="img-responsive" alt="Miniatura" />
+						</a>
+					</div>
+				</div>
+			</section>
+		</div>
+
+		<script type="text/javascript">
+			$(document).ready(function () {
+				lightGallery(document.getElementById('lightgallery'), {
+					selector: '.thumbnail',
+					plugins: [lgThumbnail, lgZoom, lgFullscreen],
+					speed: 500,
+				});
+			});
+		</script>
+	</body>
+</html>
