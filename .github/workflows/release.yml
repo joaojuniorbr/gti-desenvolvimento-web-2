@@ -1,4 +1,4 @@
-name: Create Release
+name: Release
 
 on:
   push:
@@ -6,24 +6,24 @@ on:
       - 'v*.*.*'
 
 jobs:
-  create-release:
+  generate-release:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
-      - name: Generate release notes
+      - name: Generate Changelog
         run: |
           TAG=${GITHUB_REF#refs/tags/}
-          NOTES="## $TAG\n\n$(git log --pretty=format:'- %s' $(git describe --tags --abbrev=0)^..HEAD)"
-          echo "$NOTES" > release_notes.md
+          git fetch --prune --unshallow  # Garante histórico completo
+          echo "## $TAG ($(date +'%Y-%m-%d'))" > CHANGELOG.md
+          git log --pretty=format:"- %s" $(git describe --tags --abbrev=0)^..HEAD >> CHANGELOG.md
+          echo "" >> CHANGELOG.md
+          cat CHANGELOG.md > TEMP && mv TEMP CHANGELOG.md
 
       - name: Create Release
-        uses: actions/create-release@v1
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        uses: softprops/action-gh-release@v1
         with:
-          tag_name: ${{ github.ref }}
-          release_name: Release ${{ github.ref }}
-          body_path: release_notes.md
-          draft: false
-          prerelease: false
+          body_path: CHANGELOG.md
+          generate_release_notes: true
