@@ -1,0 +1,29 @@
+name: Create Release
+
+on:
+  push:
+    tags:
+      - 'v*.*.*'
+
+jobs:
+  create-release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Generate release notes
+        run: |
+          TAG=${GITHUB_REF#refs/tags/}
+          NOTES="## $TAG\n\n$(git log --pretty=format:'- %s' $(git describe --tags --abbrev=0)^..HEAD)"
+          echo "$NOTES" > release_notes.md
+
+      - name: Create Release
+        uses: actions/create-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          tag_name: ${{ github.ref }}
+          release_name: Release ${{ github.ref }}
+          body_path: release_notes.md
+          draft: false
+          prerelease: false
