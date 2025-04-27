@@ -1,29 +1,60 @@
-name: Release
+name: Bump Version
 
 on:
   push:
-    tags:
-      - 'v*.*.*'
+    branches:
+      - main
+
+permissions:
+  contents: write
+  pull-requests: write
 
 jobs:
-  generate-release:
+  bump-version:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
         with:
           fetch-depth: 0
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Get current version
+        id: version
+        run: |
+          TAG=$(git describe --tags --abbrev=0 2>/dev/null || echo "v0.0.0")
+          echo "current_version=${TAG#v}" >> $GITHUB_OUTPUT
+
+      - name: Bump version
+        id: bump
+        run: |
+          IFS='.' read -r major minor patch <<< "${{ steps.version.outputs.current_version }}"
+          new_patch=$((patch + 1))
+          echo "new_version=v$major.$minor.$new_patch" >> $GITHUB_OUTPUT
+
+      - name: Create tag
+        run: |
+          git config --global user.name "GitHub Actions"
+          git config --global user.email "actions@github.com"
+          git tag ${{ steps.bump.outputs.new_version }}
+          git push origin ${{ steps.bump.outputs.new_version }}
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Generate Changelog
         run: |
-          TAG=${GITHUB_REF#refs/tags/}
-          git fetch --prune --unshallow  # Garante histórico completo
-          echo "## $TAG ($(date +'%Y-%m-%d'))" > CHANGELOG.md
-          git log --pretty=format:"- %s" $(git describe --tags --abbrev=0)^..HEAD >> CHANGELOG.md
+          git fetch --prune --unshallow
+          PREV_TAG=$(git describe --tags --abbrev=0 ${{ steps.bump.outputs.new_version }}^ 2>/dev/null || echo "")
+          if [ -z "$PREV_TAG" ]; then
+            git log --pretty=format:"- %s" > CHANGELOG.md
+          else
+            git log --pretty=format:"- %s" $PREV_TAG..${{ steps.bump.outputs.new_version }} > CHANGELOG.md
+          fi
           echo "" >> CHANGELOG.md
-          cat CHANGELOG.md > TEMP && mv TEMP CHANGELOG.md
+          cat CHANGELOG.md
 
-      - name: Create Release
+      - name: Create GitHub Release
         uses: softprops/action-gh-release@v1
         with:
+          tag_name: ${{ steps.bump.outputs.new_version }}
           body_path: CHANGELOG.md
           generate_release_notes: true
