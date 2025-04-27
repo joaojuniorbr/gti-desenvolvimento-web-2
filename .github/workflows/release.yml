@@ -1,4 +1,4 @@
-name: Bump Version
+name: Release Generate
 
 on:
   push:
@@ -42,7 +42,7 @@ jobs:
 
       - name: Generate Changelog
         run: |
-          git fetch --prune --unshallow
+          git fetch --prune
           PREV_TAG=$(git describe --tags --abbrev=0 ${{ steps.bump.outputs.new_version }}^ 2>/dev/null || echo "")
           if [ -z "$PREV_TAG" ]; then
             git log --pretty=format:"- %s" > CHANGELOG.md
