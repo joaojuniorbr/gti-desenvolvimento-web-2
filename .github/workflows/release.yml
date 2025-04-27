@@ -22,34 +22,37 @@ jobs:
         id: version
         run: |
           TAG=$(git describe --tags --abbrev=0 2>/dev/null || echo "v0.0.0")
-          echo "current_version=${TAG#v}" >> $GITHUB_OUTPUT
+          echo "current_version=${TAG#v}" >> $GITHUB_ENV
 
       - name: Bump version
         id: bump
         run: |
-          IFS='.' read -r major minor patch <<< "${{ steps.version.outputs.current_version }}"
+          IFS='.' read -r major minor patch <<< "${{ env.current_version }}"
           new_patch=$((patch + 1))
-          echo "new_version=v$major.$minor.$new_patch" >> $GITHUB_OUTPUT
+          new_version="v$major.$minor.$new_patch"
+          echo "new_version=$new_version" >> $GITHUB_ENV
 
       - name: Create tag
         run: |
           git config --global user.name "GitHub Actions"
           git config --global user.email "actions@github.com"
-          git tag ${{ steps.bump.outputs.new_version }}
-          git push origin ${{ steps.bump.outputs.new_version }}
+          git tag ${{ env.new_version }}
+          git push origin ${{ env.new_version }}
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Generate Changelog
         run: |
           git fetch --prune
-          PREV_TAG=$(git describe --tags --abbrev=0 ${{ steps.bump.outputs.new_version }}^ 2>/dev/null || echo "")
+          PREV_TAG=$(git describe --tags --abbrev=0 ${{ env.new_version }}^ 2>/dev/null || echo "")
+
           if [ -z "$PREV_TAG" ]; then
-            git log --pretty=format:"- %s" > CHANGELOG.md
+            git log --pretty=format:"### %h - %s%n" > CHANGELOG.md
           else
-            git log --pretty=format:"- %s" $PREV_TAG..${{ steps.bump.outputs.new_version }} > CHANGELOG.md
+            git log --pretty=format:"### %h - %s%n" $PREV_TAG..${{ env.new_version }} > CHANGELOG.md
           fi
-          echo "" >> CHANGELOG.md
+
+          echo -e "\n## ${{ env.new_version }}\n" | cat - CHANGELOG.md > temp && mv temp CHANGELOG.md
           cat CHANGELOG.md
 
       - name: Commit Changelog
@@ -57,7 +60,7 @@ jobs:
           git config --global user.name "GitHub Actions"
           git config --global user.email "actions@github.com"
           git add CHANGELOG.md
-          git commit -m "docs: update CHANGELOG.md for ${{ steps.bump.outputs.new_version }}" || echo "No changes to commit"
+          git commit -m "docs: update CHANGELOG.md for ${{ env.new_version }}" || echo "No changes to commit"
           git push
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -65,6 +68,6 @@ jobs:
       - name: Create GitHub Release
         uses: softprops/action-gh-release@v1
         with:
-          tag_name: ${{ steps.bump.outputs.new_version }}
+          tag_name: ${{ env.new_version }}
           body_path: CHANGELOG.md
           generate_release_notes: true
