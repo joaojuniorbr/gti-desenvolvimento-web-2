@@ -1,8 +1,8 @@
 
-## v0.0.5
+## v0.0.6
 
-### f7183f4 - :sparkles: adicionado o standard-version para controle de changelogs
+### 144f859 - Merge pull request #1 from joaojuniorbr/aps-aula-6
 
-### 928c9d4 - chore(release): 0.0.5
+### f917fbe - :sparkles: (aula 6) aps do dia 26/04/2025, Controle de Notas
 
-### b87bc3d - docs: update CHANGELOG.md for v0.0.4
+### 0d0439e - docs: update CHANGELOG.md for v0.0.5
