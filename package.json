@@ -1,0 +1,13 @@
+{
+	"name": "gti-2025-01-web",
+	"version": "0.0.5",
+	"scripts": {
+		"release": "standard-version"
+	},
+	"keywords": [],
+	"author": "",
+	"license": "ISC",
+	"devDependencies": {
+		"standard-version": "^9.5.0"
+	}
+}
