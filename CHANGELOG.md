@@ -1,9 +1,8 @@
-# Changelog
 
-All notable changes to this project will be documented in this file. See
-[standard-version](https://github.com/conventional-changelog/standard-version)
-for commit guidelines.
+## v0.0.5
 
-### [0.0.5](https://github.com/joaojuniorbr/gti-desenvolvimento-web-2/compare/v0.0.4...v0.0.5) (2025-04-27)
+### f7183f4 - :sparkles: adicionado o standard-version para controle de changelogs
 
-- :construction_worker: adiciona o changelog no projeto
+### 928c9d4 - chore(release): 0.0.5
+
+### b87bc3d - docs: update CHANGELOG.md for v0.0.4
