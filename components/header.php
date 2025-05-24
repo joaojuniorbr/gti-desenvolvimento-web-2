@@ -40,7 +40,7 @@
         <h1 class="text-xl font-bold uppercase"><?php echo $configuration['title']; ?></h1>
         <?php if (isset($configuration['menu'])): ?>
           <nav>
-            <ul class="flex space-x-2">
+            <ul class="flex gap-2 flex-wrap justify-end">
               <?php foreach ($configuration['menu'] as $item): ?>
                 <?php
                 $activeClass = (basename($_SERVER['REQUEST_URI']) === basename($item['url'])) ? 'text-orange-500 bg-white' : 'text-white hover:bg-white/10';
