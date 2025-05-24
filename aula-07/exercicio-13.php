@@ -1,6 +1,5 @@
 <?php
-include './config.php';
-
+require_once('./config.php');
 $configuration = [
   'title' => 'Aula 07 - Exercício 13',
   'menu' => $config['menu']
@@ -64,15 +63,13 @@ $uploadResult = uploadArquivo();
 
 ?>
 
-<div class="container mx-auto py-20">
+<div class="container mx-auto py-10">
   <h1 class="text-center text-2xl font-bold mb-10">Exercício 13 - Upload de Arquivo</h1>
 
-  <form action="" method="POST" enctype="multipart/form-data" class="max-w-lg mx-auto space-y-4">
-    <div>
-      <label for="arquivo" class="block text-sm font-medium text-gray-700 mb-2">Escolha um arquivo .txt para enviar:</label>
-      <input type="file" name="arquivo" id="arquivo" required class="border border-gray-300 rounded p-3 w-full bg-white" accept=".txt" />
-    </div>
-    <button type="submit" class="px-4 py-2 bg-indigo-600 text-white rounded-md w-full">Enviar Arquivo</button>
+  <form action="" method="POST" enctype="multipart/form-data" class="flex flex-col gap-4 max-w-lg mx-auto">
+    <label for="arquivo" class="text-sm font-medium text-gray-700">Escolha um arquivo .txt para enviar:</label>
+    <input type="file" name="arquivo" id="arquivo" required class="bg-white border border-gray-300 rounded p-3" accept=".txt" />
+    <button type="submit" class="p-4 bg-indigo-600 text-white rounded-md w-full">Enviar Arquivo</button>
   </form>
 
   <?php if (!empty($uploadResult['mensagem'])): ?>

@@ -1,6 +1,5 @@
 <?php
-include './config.php';
-
+require_once('./config.php');
 $configuration = [
   'title' => 'Aula 07 - Exercício 8',
   'menu' => $config['menu']

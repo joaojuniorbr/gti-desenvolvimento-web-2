@@ -2,7 +2,7 @@
 
 $menu = [];
 
-for ($i = 0; $i < 20; $i++) {
+for ($i = 0; $i < 21; $i++) {
   $menu[] = [
     'label' => 'Exercício ' . str_pad($i + 1, 2, '0', STR_PAD_LEFT),
     'url' => './exercicio-' . ($i + 1) . '.php'

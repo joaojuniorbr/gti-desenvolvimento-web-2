@@ -1,6 +1,5 @@
 <?php
-include './config.php';
-
+require_once('./config.php');
 $configuration = [
   'title' => 'Aula 07 - Exercício 6',
   'menu' => $config['menu']
@@ -27,7 +26,7 @@ function raizQuadradaAproximada($c, $chuteInicial = 1.0)
   return null;
 }
 ?>
-<div class="container mx-auto py-20">
+<div class="container mx-auto py-10">
   <h1 class="text-center text-2xl font-bold mb-10">
     Exercício 6
   </h1>

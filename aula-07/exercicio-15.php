@@ -1,6 +1,5 @@
 <?php
-include './config.php';
-
+require_once('./config.php');
 $configuration = [
   'title' => 'Aula 07 - Exercício 15',
   'menu' => $config['menu']
@@ -127,14 +126,14 @@ $resultado = buscarPalavra();
 $statusResultStyle = statusStyle($resultado['status'] ?? '');
 ?>
 
-<div class="container mx-auto py-20">
+<div class="container mx-auto py-10">
   <h1 class="text-2xl font-bold mb-6 text-center">Exercício 15</h1>
 
-  <form method="POST" class="max-w-md mx-auto bg-white border border-slate-300 p-6 rounded shadow">
+  <form method="POST" class="max-w-md mx-auto">
     <label for="palavra" class="block mb-2 font-semibold">Digite uma palavra:</label>
     <input type="text" name="palavra" id="palavra" class="w-full border border-gray-300 p-2 rounded mb-4" required>
 
-    <button type="submit" class="bg-blue-600 text-white px-4 py-2 rounded">Verificar</button>
+    <button type="submit" class="p-4 bg-indigo-600 text-white rounded-md w-full">Verificar</button>
   </form>
 
   <?php if ($resultado): ?>
