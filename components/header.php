@@ -41,9 +41,9 @@
   <main class="min-h-screen bg-slate-100 text-slate-800 flex flex-col">
     <header class="bg-orange-500 text-white py-8">
       <div class="container mx-auto flex items-center justify-between">
-        <h1 class="text-xl font-bold uppercase"><?php echo $configuration['title']; ?></h1>
+        <h1 class="text-xl font-bold uppercase"><?php echo $configuration['logo'] ?? $configuration['title']; ?></h1>
         <?php if (isset($configuration['menu'])): ?>
-          <nav>
+          <nav class="flex-1">
             <ul class="flex gap-2 flex-wrap justify-end">
               <?php foreach ($configuration['menu'] as $item): ?>
                 <?php

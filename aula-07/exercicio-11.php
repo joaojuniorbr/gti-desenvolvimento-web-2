@@ -1,6 +1,7 @@
 <?php
 require_once('./config.php');
 $configuration = [
+  'logo' => 'Aula 07',
   'title' => 'Aula 07 - Exercício 11',
   'menu' => $config['menu']
 ];

@@ -2,6 +2,7 @@
 include './config.php';
 
 $configuration = [
+  'logo' => 'Aula 07',
   'title' => 'Aula 07 - Exercício 21',
   'menu' => $config['menu']
 ];
