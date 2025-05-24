@@ -14,7 +14,7 @@
     <div class="container mx-auto">
       <img src="./pixeltrue.svg" alt="Exercícios 05" class="mx-auto w-full md:w-1/3" />
 
-      <h1 class="text-center text-2xl font-bold mb-10">Exercícios 04</h1>
+      <h1 class="text-center text-2xl font-bold mb-10">Exercícios 05</h1>
 
       <ul class="grid grid-cols-2 md:grid-cols-3 gap-4">
         <?php for ($i = 1; $i <= 9; $i++): ?>
