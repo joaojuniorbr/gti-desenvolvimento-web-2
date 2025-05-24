@@ -7,6 +7,20 @@
 </footer>
 
 </main>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const btn = document.querySelector('.toggleMenu');
+    const menu = document.getElementById('main-menu');
+    document.querySelectorAll('.toggleMenu').forEach((btn) => {
+      btn.addEventListener('click', () => {
+        const menu = document.getElementById('main-menu');
+        menu.classList.toggle('hidden');
+      });
+    });
+  });
+</script>
+
 </body>
 
 </html>
