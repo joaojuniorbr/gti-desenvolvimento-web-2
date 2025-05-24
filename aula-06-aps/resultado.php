@@ -34,7 +34,8 @@ $avaliacoes = count($notas[array_key_first($notas)]);
               <?php echo $media; ?>
             </td>
             <td class="py-2 px-4 border-b border-r">
-              <div class="text-xs p-4 rounded font-bold <?php echo ($media >= 7) ? 'bg-green-50 text-green-600' : 'bg-red-50 text-red-600'; ?>">
+              <div class="text-xs p-4 rounded font-bold flex items-center gap-2 <?php echo ($media >= 7) ? 'bg-green-50 text-green-600' : 'bg-red-50 text-red-600'; ?>">
+                <?php echo ($media >= 7) ? '<i class="ri-check-line"></i>' : '<i class="ri-close-line"></i>'; ?>
                 <?php echo ($media >= 7) ? 'Aprovado' : 'Reprovado'; ?>
               </div>
             </td>
