@@ -5,7 +5,17 @@ require_once 'class/Pessoas.php';
 
 $configuration = [
   'title' => 'Aula 08 - Linguagem PHP: Persistência de Dados (MySQL)',
-  'logo' => 'Aula 08 - CRUD'
+  'logo' => 'Aula 08 - CRUD',
+  'menu' => array(
+    array(
+      'label' => 'Inicio',
+      'url' => './index.php'
+    ),
+    array(
+      'label' => 'Adicionar',
+      'url' => './adicionar.php'
+    )
+  ),
 ];
 
 include '../components/header.php';
