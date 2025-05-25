@@ -12,6 +12,7 @@ $menu = array(
   array('label' => 'Aula 05', 'url' => './aula-05/index.php'),
   array('label' => 'Aula 06', 'url' => './aula-06-aps/index.php'),
   array('label' => 'Aula 07', 'url' => './aula-07/index.php'),
+  array('label' => 'Aula 08', 'url' => './aula-08/index.php'),
 );
 ?>
 <div class="container mx-auto py-10">
