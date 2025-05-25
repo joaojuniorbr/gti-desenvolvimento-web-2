@@ -1,5 +1,15 @@
 <?php
 
+require_once('./config.php');
+$configuration = [
+  'logo' => 'Aula 05',
+  'title' => 'Aula 05 - Exercício 9',
+  'menu' => $config['menu'],
+  'hasBootstrap' => true,
+];
+
+include '../components/header.php';
+
 $campos = [
   "name" => "Nome",
   "email" => "Email",
@@ -23,62 +33,43 @@ if ($isResposta) {
 
 ?>
 
-<!DOCTYPE html>
-<html>
+<div class="container mx-auto py-10">
 
-<head>
-  <title>Exercício - 8</title>
-  <meta name="author" content="Tieppo" />
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
-  <script src="https://cdn.tailwindcss.com"></script>
+  <h1 class="text-center text-2xl font-bold mb-4">
+    Exercício 8 - Feedback do cliente
+  </h1>
 
-  <link href="https://cdn.jsdelivr.net/npm/remixicon/fonts/remixicon.css" rel="stylesheet" />
+  <?php if ($isResposta): ?>
+    <div class="mb-10">
+      <?php if (empty($validacao)): ?>
+        <?php foreach ($campos as $key => $value): ?>
+          <div class="py-2 px-4 bg-green-50 rounded border !border-green-600 text-success my-2">
+            <i class="ri-check-double-fill text-green-600"></i>
 
-</head>
+            Campo <?php echo $value; ?>:
+            <strong>
+              <?php if (is_array($_POST[$key])): ?>
+                <?php echo implode(", ", $_POST[$key]); ?>
+              <?php else: ?>
+                <?php echo $_POST[$key]; ?>
+              <?php endif; ?>
+            </strong>
+          </div>
+        <?php endforeach; ?>
+      <?php else: ?>
+        <?php foreach (array_keys($validacao) as $campo) : ?>
+          <div class="py-2 px-4 bg-red-50 rounded border !border-red-600 text-danger my-2">
+            <i class="ri-close-circle-fill text-red-600"></i>
 
-<body>
-
-  <header class="bg-green-100 py-8 shadow-lg">
-    <div class="container">
-      <h1 class="font-bold text-3xl uppercase">Feedback do cliente</h1>
+            Campo <?php echo $campos[$campo]; ?>, <?php echo $validacao[$campo]; ?>
+          </div>
+        <?php endforeach; ?>
+      <?php endif; ?>
     </div>
-  </header>
+  <?php endif; ?>
 
-  <div class="container py-10">
-
-    <?php if ($isResposta): ?>
-      <div class="mb-10">
-        <?php if (empty($validacao)): ?>
-          <?php foreach ($campos as $key => $value): ?>
-            <div class="py-2 px-4 bg-green-50 rounded border !border-green-600 text-success my-2">
-              <i class="ri-check-double-fill text-green-600"></i>
-
-              Campo <?php echo $value; ?>:
-              <strong>
-                <?php if (is_array($_POST[$key])): ?>
-                  <?php echo implode(", ", $_POST[$key]); ?>
-                <?php else: ?>
-                  <?php echo $_POST[$key]; ?>
-                <?php endif; ?>
-              </strong>
-            </div>
-          <?php endforeach; ?>
-        <?php else: ?>
-          <?php foreach (array_keys($validacao) as $campo) : ?>
-            <div class="py-2 px-4 bg-red-50 rounded border !border-red-600 text-danger my-2">
-              <i class="ri-close-circle-fill text-red-600"></i>
-
-              Campo <?php echo $campos[$campo]; ?>, <?php echo $validacao[$campo]; ?>
-            </div>
-          <?php endforeach; ?>
-        <?php endif; ?>
-      </div>
-    <?php endif; ?>
-
+  <div class="bg-white p-8 rounded shadow-lg border border-slate-200">
     <form class="form-horizontal" method="post">
-
       <div class="form-group mb-2">
         <label class="control-label col-sm-2" for="name">Nome:</label>
         <div class="col-sm-10">
@@ -158,9 +149,7 @@ if ($isResposta) {
       </button>
 
     </form>
+  </div>
+</div>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
-
-</body>
-
-</html>
+<?php include('../components/footer.php'); ?>
