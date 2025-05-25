@@ -41,9 +41,9 @@ if ($isResposta) {
       <input type="number" name="produto[quantidade][]" placeholder="Quantidade" class="border border-slate-400 p-4 w-full text-base rounded" required />
     </div>
 
-    <div class="flex gap-4 border-b-4 border-slate-200 pb-10 mb-6">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-4 border-b-4 border-slate-200 pb-10 mb-6">
       <button type="button"
-        class="px-8 rounded flex gap-2 items-center bg-red-600 text-white"
+        class="p-2 rounded flex gap-2 items-center justify-center bg-red-600 text-white text-sm"
         :class="items === 1 ? 'bg-gray-400 cursor-not-allowed' : 'bg-red-600'"
         @click="removeItem()"
         :disabled="items === 1">
@@ -51,12 +51,12 @@ if ($isResposta) {
         Remover Produto
       </button>
 
-      <button type="button" class="px-8 rounded flex gap-2 items-center bg-green-600 text-white" @click="addItem()">
+      <button type="button" class="p-2 rounded flex gap-2 items-center justify-center bg-green-600 text-white text-sm" @click="addItem()">
         <i class="ri-add-fill"></i>
         Adicionar Produto
       </button>
 
-      <button type="submit" class="bg-indigo-800 text-sm font-bold uppercase text-white p-4 rounded flex-1">Salvar vendas</button>
+      <button type="submit" class="bg-indigo-800 text-sm font-bold uppercase text-white p-2 rounded flex-1">Salvar vendas</button>
     </div>
   </form>
 
