@@ -41,6 +41,7 @@ $paginaAtual = $pessoasList->page;
           <th class="py-2 px-4">Email</th>
           <th class="py-2 px-4">CPF</th>
           <th class="py-2 px-4">Nascimento</th>
+          <th class="py-2 px-4">Ações</th>
         </tr>
       </thead>
       <tbody>
@@ -49,10 +50,17 @@ $paginaAtual = $pessoasList->page;
             <td class="py-2 px-4 w-4">
               <span class="text-xs p-1 bg-green-600 text-white rounded truncate"><?php echo htmlspecialchars($pessoa->id); ?></span>
             </td>
-            <td class="p-4 font-bold"><?php echo $pessoa->nome; ?></td>
+            <td class="p-4 font-bold">
+              <a href="./editar.php?id=<?php echo $pessoa->id; ?>" class="hover:underline hover:text-indigo-600">
+                <?php echo htmlspecialchars($pessoa->nome); ?>
+              </a>
+            </td>
             <td class="p-4"><?php echo $pessoa->email; ?></td>
             <td class="p-4 text-slate-400"><?php echo $pessoas->maskCpf($pessoa->cpf); ?></td>
             <td class="p-4"><?php echo $pessoas->maskNascimento($pessoa->nascimento); ?></td>
+            <td class="p-4">
+              <a href="./api/excluir-pessoa.php?id=<?php echo $pessoa->id; ?>" class="text-red-600 hover:underline">Excluir</a>
+            </td>
           </tr>
         <?php endforeach; ?>
       </tbody>

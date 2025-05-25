@@ -67,7 +67,7 @@ class Pessoas
 
   public function findById($id)
   {
-    $stmt = $this->conn->prepare("SELECT * FROM pessoas WHERE id = ?");
+    $stmt = $this->conn->prepare("SELECT id, nome, email, cpf, nascimento FROM pessoas WHERE id = ?");
     $stmt->bind_param("s", $id);
     $stmt->execute();
 
@@ -79,7 +79,7 @@ class Pessoas
   {
     $offset = ($page - 1) * $limit;
 
-    $stmt = $this->conn->prepare("SELECT * FROM pessoas LIMIT ? OFFSET ?");
+    $stmt = $this->conn->prepare("SELECT * FROM pessoas ORDER BY nome LIMIT ? OFFSET ?");
     $stmt->bind_param("ii", $limit, $offset);
     $stmt->execute();
 
@@ -111,9 +111,31 @@ class Pessoas
 
   public function update($id, $data)
   {
-    $stmt = $this->conn->prepare("UPDATE pessoas SET nome = ?, email = ?, nascimento = ? WHERE id = ?");
-    $stmt->bind_param("ssss", $data['nome'], $data['email'], $data['nascimento'], $id);
+    $fields = [];
+    $values = [];
+
+    foreach ($data as $key => $value) {
+      if ($value !== null && $value !== '') {
+        $fields[] = "$key = ?";
+        $values[] = $value;
+      }
+    }
+
+    if (empty($fields)) {
+      return false;
+    }
+
+    $values[] = $id;
+
+    $sql = "UPDATE pessoas SET " . implode(", ", $fields) . " WHERE id = ?";
+
+    $types = str_repeat('s', count($values));
+
+    $stmt = $this->conn->prepare($sql);
+    $stmt->bind_param($types, ...$values);
     $stmt->execute();
+
+    return (object)['success' => true, 'data' => $this->findById($id)];
   }
 
   public function login($email, $senha)
