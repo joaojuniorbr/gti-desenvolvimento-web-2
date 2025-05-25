@@ -1,32 +1,28 @@
-<!DOCTYPE html>
-<html lang="pt-br">
+<?php include './config.php'; ?>
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Exercícios 04</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-</head>
+<?php
+$configuration = [
+  'title' => 'Aula 04',
+  'menu' => $config['menu']
+];
+include '../components/header.php';
+?>
+<div class="container mx-auto py-10">
 
-<body>
-  <main class="h-screen bg-slate-100 p-10 text-slate-800">
-    <div class="container mx-auto">
-      <img src="./pixeltrue.svg" alt="Exercícios 04" class="mx-auto w-full md:w-1/3" />
+  <h1 class="text-center text-2xl font-bold mb-10">Aula 04 - Linguagem PHP: Formulários</h1>
 
-      <h1 class="text-center text-2xl font-bold mb-10">Exercícios 04</h1>
+  <img src="../assets/images/pixeltrue-plan-1.svg" class="mx-auto h-auto max-w-lg mb-10" />
 
-      <ul class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-        <?php for ($i = 1; $i <= 7; $i++): ?>
-          <li>
-            <a href="./0<?php echo $i; ?>.php" class="block bg-slate-700 text-white hover:bg-slate-600 text-center py-4 rounded shadow">
-              Exercício 0<?php echo $i; ?>
-            </a>
-          </li>
-        <?php endfor; ?>
-      </ul>
-    </div>
-  </main>
-</body>
-
-</html>
+  <ul class="grid grid-cols-2 md:grid-cols-4 gap-4">
+    <?php for ($i = 1; $i < count($config['menu']); $i++): ?>
+      <li>
+        <a
+          href="<?php echo $config['menu'][$i]['url']; ?>"
+          class="block bg-white border border-orange-500 text-orange-500 text-center py-4 rounded shadow text-xs hover:bg-orange-500 hover:text-white transition duration-300 ease-in-out">
+          <?php echo $config['menu'][$i]['label']; ?>
+        </a>
+      </li>
+    <?php endfor; ?>
+  </ul>
+</div>
+<?php include '../components/footer.php'; ?>

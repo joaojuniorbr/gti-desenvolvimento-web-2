@@ -25,7 +25,7 @@ $cursoMaisAlunos = array_keys($cursos, max($cursos))[0];
     <div class="bg-white p-6 rounded shadow-md text-center">
       <h2 class="text-lg font-semibold">Total de alunos</h2>
       <p class="text-xl mt-2">
-        Alunos matriculados
+        <span class="block md:inline">Alunos matriculados</span>
         <span class="bg-indigo-600 text-white text-sm px-3 py-1 rounded-full ml-2">
           <?php echo $totalAlunos; ?> alunos
         </span>
@@ -35,7 +35,7 @@ $cursoMaisAlunos = array_keys($cursos, max($cursos))[0];
     <div class="bg-white p-6 rounded shadow-md text-center">
       <h2 class="text-lg font-semibold">Curso com mais alunos</h2>
       <p class="text-xl mt-2">
-        <?php echo $cursoMaisAlunos; ?>
+        <span class="block md:inline"><?php echo $cursoMaisAlunos; ?></span>
         <span class="bg-indigo-600 text-white text-sm px-3 py-1 rounded-full ml-2">
           <?php echo $cursos[$cursoMaisAlunos]; ?> alunos
         </span>

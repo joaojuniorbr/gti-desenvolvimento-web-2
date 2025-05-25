@@ -1,6 +1,6 @@
 </article>
 <footer class="bg-orange-500 text-white">
-  <div class="container mx-auto text-center py-8">
+  <div class="container mx-auto text-center py-8 px-6 md:px-0">
     <p class="text-sm mb-1 font-bold uppercase">João Luiz Vicente Junior &copy; 2025. Todos os direitos reservados.</p>
     <p class="text-xs text-orange-200">
       <a href="/" class="hover:underline">Desenvolvimento Web 2 - Gestão de Tecnologia - IFPR - Campus Pinhais</a>
