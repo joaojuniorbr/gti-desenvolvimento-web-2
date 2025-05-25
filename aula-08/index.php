@@ -1,15 +1,17 @@
-<!DOCTYPE html>
-<html lang="en">
+<?php
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+require_once 'config.php';
 
-</head>
+$configuration = [
+  'title' => 'Aula 08 - Linguagem PHP: Persistência de Dados (MySQL)',
+  'logo' => 'CRUD'
+];
 
-<body>
+include '../components/header.php';
 
-</body>
+?>
+<div class="container mx-auto">
 
-</html>
+</div>
+
+<?php include '../components/footer.php'; ?>

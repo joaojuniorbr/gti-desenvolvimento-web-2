@@ -1,9 +1,9 @@
 <?php
 
-$database['server'] = '';
-$database['user'] = '';
-$database['password'] = '';
-$database['database'] = '';
+$database['server'] = 'localhost';
+$database['user'] = 'joaojunior';
+$database['password'] = 'teste@123';
+$database['database'] = 'ifprweb';
 
 mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
 try {
