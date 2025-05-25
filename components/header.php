@@ -17,6 +17,10 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,100..700;1,100..700&display=swap" rel="stylesheet" />
 
+  <?php if (isset($configuration['hasBootstrap'])): ?>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous" />
+  <?php endif; ?>
+
   <script src="https://cdn.tailwindcss.com"></script>
 
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
@@ -66,7 +70,7 @@
       </nav>
     </div>
 
-    <header class="bg-orange-500 text-white py-8">
+    <header class="bg-orange-500 text-white py-4 px-6 md:py-8">
       <div class="container mx-auto flex items-center justify-between">
         <h1 class="text-xl font-bold uppercase "><?php echo $configuration['logo'] ?? $configuration['title']; ?></h1>
         <?php if (isset($configuration['menu'])): ?>
@@ -93,4 +97,4 @@
         <?php endif; ?>
       </div>
     </header>
-    <article class="flex-1">
+    <article class="flex-1 px-6 md:px-0">

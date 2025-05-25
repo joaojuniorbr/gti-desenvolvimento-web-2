@@ -1,6 +1,6 @@
 <?php
 $configuration = [
-  'title' => 'Aula 06 - APS',
+  'title' => 'Aula 06 - Atividade Prática Supervisionada (APS)',
   'logo' => 'Controle de Notas'
 ];
 include '../components/header.php';
