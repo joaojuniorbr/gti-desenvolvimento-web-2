@@ -47,12 +47,21 @@ jobs:
           PREV_TAG=$(git describe --tags --abbrev=0 ${{ env.new_version }}^ 2>/dev/null || echo "")
 
           if [ -z "$PREV_TAG" ]; then
-            git log --pretty=format:"### %h - %s%n" > CHANGELOG.md
+            git log --pretty=format:"### %h - %s%n" > NEW_CHANGELOG.md
           else
-            git log --pretty=format:"### %h - %s%n" $PREV_TAG..${{ env.new_version }} > CHANGELOG.md
+            git log --pretty=format:"### %h - %s%n" $PREV_TAG..${{ env.new_version }} > NEW_CHANGELOG.md
           fi
 
-          echo -e "\n## ${{ env.new_version }}\n" | cat - CHANGELOG.md > temp && mv temp CHANGELOG.md
+          echo -e "\n## ${{ env.new_version }}\n" | cat - NEW_CHANGELOG.md > HEADER.md
+
+          # Junta o novo changelog com o antigo (se existir)
+          if [ -f CHANGELOG.md ]; then
+            cat HEADER.md CHANGELOG.md > FULL_CHANGELOG.md
+          else
+            cp HEADER.md FULL_CHANGELOG.md
+          fi
+
+          mv FULL_CHANGELOG.md CHANGELOG.md
           cat CHANGELOG.md
 
       - name: Commit Changelog
