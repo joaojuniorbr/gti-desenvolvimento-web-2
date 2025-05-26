@@ -17,7 +17,7 @@ $menu = array(
 ?>
 <div class="container mx-auto py-10">
 
-  <img src="./assets/images/pixeltrue-web-development-1.svg" class="mx-auto h-auto max-w-lg mb-10" />
+  <img src="./assets/images/pixeltrue-web-development-1.svg" class="mx-auto h-auto max-w-lg mb-10 w-full" />
 
   <ul class="grid grid-cols-2 md:grid-cols-5 gap-4">
     <?php for ($i = 0; $i < count($menu); $i++): ?>

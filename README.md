@@ -1,141 +1,159 @@
-# **GTI Desenvolvimento Web II - IFPR Campus Pinhais**
+# 💻 GTI Desenvolvimento Web II - IFPR Campus Pinhais
 
 Repositório dedicado aos exercícios da disciplina **Desenvolvimento Web II** do
 curso de **Gestão da Tecnologia da Informação (GTI)** do **Instituto Federal do
-Paraná (IFPR) - Campus Pinhais**.
+Paraná (IFPR) – Campus Pinhais**.
 
 ---
 
-## **📌 Visão Geral**
+## 📌 Visão Geral
 
-Este projeto contém uma coleção de exercícios em **PHP**, **HTML**, **CSS**,
-**JavaScript**, **jQuery** e **Vue.js**, abordando desde conceitos básicos até
-funcionalidades mais avançadas, como manipulação de formulários, arrays,
-interações dinâmicas e integração com bancos de dados.
+Este projeto contém uma coleção de exercícios utilizando **PHP**, **HTML**,
+**CSS**, **JavaScript**, **Alpine.js**, **Tailwind CSS**, **Bootstrap**,
+**jQuery** e **Vue.js**, cobrindo desde lógica de programação e manipulação de
+formulários até dashboards interativos, consumo de dados e simulações.
 
-Os exercícios estão organizados em pastas conforme a numeração das listas
-disponibilizadas pelo professor, garantindo uma estrutura clara e fácil
-navegação.
+Os exercícios estão organizados por aula, com exemplos práticos de uso de
+arrays, estruturas condicionais, interação via formulário, persistência de dados
+e criação de interfaces responsivas.
 
 ---
 
-## **📂 Estrutura do Projeto**
+## 📂 Estrutura do Projeto
 
 ```
+
 gti-desenvolvimento-web-2/
-├── Exercicios-03/
-│   ├── 01.php          # "Olá, Mundo!" com Tailwind CSS
-│   ├── 02.php          # Concatenação de variáveis para e-mail
-│   ├── 03.php          # Troca de valores entre variáveis
-│   ├── 04.php          # Operações matemáticas com formatação
-│   ├── 05.php          # Verificação de número par/ímpar
-│   ├── 06.php          # Números de 1 a 100 (while)
-│   ├── 07.php          # Números de 1 a 100 com par/ímpar (for)
-│   ├── 08.php          # Tabela de x e x²
-│   ├── 09.php          # Tabuadas de 1 a 10
-│   ├── 10.php          # Simulador de poção mágica
-│   └── 11.php          # Cálculo de infestação de pulgas
-│
-├── Exercicios-04/
-│   ├── 02.php          # Formulário com $_GET (nome e idade)
-│   ├── 03.php          # Calculadora de água diária
-│   ├── 04.php          # Calculadora de cédulas monetárias
-│   ├── 05.php          # Sistema de pedidos (IFPR Quiosque)
-│   ├── 06.php          # Problema dos selos (retângulo)
-│   └── 07.php          # Formulário de cadastro com SQL simulado
-│
-├── Exercicios-05/
-│   ├── 1.php           # Análise de acessos semanais
-│   ├── 2.php           # Dashboard de vendas
-│   ├── 3.php           # Lista de tarefas (pendentes/concluídas)
-│   ├── 4.php           # Gerenciador de chamados
-│   ├── 5.php           # Dashboard de cursos (Bootstrap)
-│   ├── 6.php           # Sistema de plantões
-│   ├── 7.php           # Ranking de vendedores
-│   ├── 8.php           # Formulário com validação (isset)
-│   └── 9.php           # Sistema de vendas via formulário (com Vue.js)
-│
-└── README.md           # Documentação do projeto
+├── aula-04/
+│   └── \[...].php
+├── aula-05/
+│   └── \[...].php
+├── aula-07/
+│   └── \[...].php
+├── aula-08/
+│   └── \[...].php
+├── components/
+│   ├── header.php
+│   ├── footer.php
+│   └── menu.php
+├── .github/
+│   └── workflows/
+│       └── fly-deploy.yml
+├── .dockerignore
+├── Dockerfile
+├── fly.toml
+└── README.md
+
 ```
 
 ---
 
-## **🛠️ Tecnologias Utilizadas**
+## 🛠️ Tecnologias Utilizadas
 
-### **Front-end**
+### 🔸 Front-end
 
-✔ **HTML5** – Estruturação das páginas  
-✔ **CSS3** – Estilização básica  
-✔ **Tailwind CSS** (via CDN) – Estilização avançada em alguns exercícios  
-✔ **Bootstrap** (em alguns exercícios) – Componentes UI prontos  
-✔ **JavaScript** – Interações básicas  
-✔ **jQuery** (via CDN) – Manipulação do DOM e plugins  
-✔ **Vue.js** (via CDN) – Framework JavaScript para formulários dinâmicos
-(Exercício 05-9)
+- **HTML5** – Estrutura semântica
+- **CSS3 / Tailwind CSS** – Estilização moderna
+- **Bootstrap** – Componentes responsivos
+- **JavaScript / jQuery** – Interatividade
+- **Vue.js** – Formulários reativos
+- **Alpine.js** – Interações declarativas simples
 
-### **Back-end**
+### 🔹 Back-end
 
-✔ **PHP** (>= 7.0) – Lógica de programação e processamento de dados  
-✔ **Formulários HTML** – Métodos GET e POST  
-✔ **Arrays** – Manipulação de dados em listas e matrizes  
-✔ **Validação de Dados** – Uso de `isset()`, `empty()` e
-`$_SERVER['REQUEST_METHOD']`
+- **PHP 8.2+** – Processamento de lógica e dados
+- **Arrays e Estruturas Condicionais**
+- **Validação de Formulários** – `isset()`, `empty()`, `$_SERVER`
+- **Formulários GET/POST**
 
 ---
 
-## **🚀 Como Executar**
+## 🐳 Ambiente de Desenvolvimento com Docker
 
-### **1. Pré-requisitos**
+Este projeto pode ser executado sem instalar nada localmente, usando **Docker**.
 
-- Servidor local (XAMPP, WAMP, Laragon, ou similar)
-- PHP instalado (versão 7.x ou superior)
-- Navegador moderno (Chrome, Firefox, Edge)
+### 🏗️ Construir a imagem
 
-### **2. Configuração**
+```bash
+docker build -t gti-web .
+```
+
+### 🚀 Executar o container
+
+```bash
+docker run -p 8080:80 gti-web
+```
+
+### 🌐 Acessar via navegador
+
+```
+http://localhost:8080
+```
+
+> Arquivos como `upload/`, `log.txt`, e `node_modules/` são ignorados via
+> `.dockerignore`.
+
+---
+
+## 🔄 Deploy Automatizado (Fly.io)
+
+O projeto é implantado automaticamente via GitHub Actions para a **Fly.io**.
+
+- Arquivo de workflow: `.github/workflows/fly-deploy.yml`
+- Configuração Fly: `fly.toml`
+
+Ao dar push na branch `main`, o deploy é acionado automaticamente.
+
+---
+
+## 🎯 Destaques dos Exercícios
+
+✅ **Aula 04** – Simulação de pedidos em quiosque, com calculadora de cédulas e
+lógica condicional aplicada.
+
+✅ **Aula 05** – Dashboards interativos com **Alpine.js** e **Tailwind**,
+ranking de vendedores e análise de dados via arrays multidimensionais.
+
+✅ **Aula 07** – Layouts com imagens e estilização avançada.
+
+✅ **Aula 08** – Tabelas responsivas que se adaptam ao tamanho da tela.
+
+---
+
+## 🚀 Como Executar Manualmente
+
+### Pré-requisitos
+
+- PHP 8+ instalado
+- Servidor local (XAMPP, WAMP, Laragon, ou PHP embutido)
+- Navegador moderno
+
+### Instalação
 
 ```bash
 git clone https://github.com/joaojuniorbr/gti-desenvolvimento-web-2.git
 cd gti-desenvolvimento-web-2
 ```
 
-### **3. Executando os Exercícios**
+### Acesso manual
 
-- Coloque a pasta do projeto em `htdocs` (XAMPP) ou `www` (WAMP).
-- Acesse via navegador:
+- Via navegador:
+
   ```
-  http://localhost/gti-desenvolvimento-web-2/Exercicios-03/01.php
+  http://localhost/gti-desenvolvimento-web-2/
   ```
-  (Ajuste o caminho conforme o exercício desejado.)
 
 ---
 
-## **🎯 Destaques**
+## 👨‍💻 Autor
 
-✅ **Exercício 03-10** – Simulador de poção mágica com regras complexas.  
-✅ **Exercício 04-05** – Sistema de pedidos do Quiosque IFPR.  
-✅ **Exercício 05-5** – Dashboard de cursos com Bootstrap.  
-✅ **Exercício 05-7** – Ranking de vendedores com arrays multidimensionais.  
-✅ **Exercício 05-8** – Formulário com validação avançada (isset e POST).  
-✅ **Exercício 05-9** – Sistema de vendas com formulário dinâmico usando
-**Vue.js** para uma experiência interativa.
+**João Junior** Estudante de Gestão da Tecnologia da Informação Instituto
+Federal do Paraná – Campus Pinhais
+
+🔗 GitHub: [https://github.com/joaojuniorbr](https://github.com/joaojuniorbr)
 
 ---
 
-## **👨‍💻 Autor**
+📌 **Este projeto é voltado exclusivamente para fins educacionais.**
 
-**João Junior**  
-Estudante de **Gestão da Tecnologia da Informação (GTI)** Instituto Federal do
-Paraná (IFPR) - Campus Pinhais
-
-🔗 **GitHub:**
-[https://github.com/joaojuniorbr](https://github.com/joaojuniorbr)
-
----
-
-**📌 Observação:**  
-Este repositório é destinado **exclusivamente para fins educacionais**, servindo
-como portfólio de exercícios da disciplina.
-
----
-
-🔹 **Atualizado em:** **Abril de 2025**
+📅 **Atualizado em: Maio de 2025**

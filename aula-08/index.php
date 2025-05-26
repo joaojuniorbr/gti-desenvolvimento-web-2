@@ -36,18 +36,18 @@ $paginaAtual = $pessoasList->page;
     <table class="min-w-full bg-white border border-gray-200 rounded-lg shadow-md text-left">
       <thead>
         <tr class="text-xs font-semibold text-gray-700 border-b border-gray-200">
-          <th class="py-2 px-4">ID</th>
+          <th class="py-2 px-4 hidden sm:table-cell">ID</th>
           <th class="py-2 px-4">Nome</th>
           <th class="py-2 px-4">Email</th>
-          <th class="py-2 px-4">CPF</th>
-          <th class="py-2 px-4">Nascimento</th>
+          <th class="py-2 px-4 hidden sm:table-cell">CPF</th>
+          <th class="py-2 px-4 hidden sm:table-cell">Nascimento</th>
           <th class="py-2 px-4">Ações</th>
         </tr>
       </thead>
       <tbody>
         <?php foreach ($pessoasList->data as $pessoa): ?>
           <tr class="text-sm text-gray-700 border-b border-gray-200 hover:bg-gray-50">
-            <td class="py-2 px-4 w-4">
+            <td class="py-2 px-4 w-4 hidden sm:table-cell">
               <span class="text-xs p-1 bg-green-600 text-white rounded truncate"><?php echo htmlspecialchars($pessoa->id); ?></span>
             </td>
             <td class="p-4 font-bold">
@@ -55,9 +55,9 @@ $paginaAtual = $pessoasList->page;
                 <?php echo htmlspecialchars($pessoa->nome); ?>
               </a>
             </td>
-            <td class="p-4"><?php echo $pessoa->email; ?></td>
-            <td class="p-4 text-slate-400"><?php echo $pessoas->maskCpf($pessoa->cpf); ?></td>
-            <td class="p-4"><?php echo $pessoas->maskNascimento($pessoa->nascimento); ?></td>
+            <td class="p-4 truncate text-ellipsis max-w-[100px] md:max-w-sm"><?php echo $pessoa->email; ?></td>
+            <td class="p-4 text-slate-400 hidden sm:table-cell"><?php echo $pessoas->maskCpf($pessoa->cpf); ?></td>
+            <td class="p-4 hidden sm:table-cell"><?php echo $pessoas->maskNascimento($pessoa->nascimento); ?></td>
             <td class="p-4">
               <a href="./api/excluir-pessoa.php?id=<?php echo $pessoa->id; ?>" class="text-red-600 hover:underline">Excluir</a>
             </td>
