@@ -1,6 +1,6 @@
 
-## v0.0.10
+## v0.0.11
 
-### 0a5519d - :pencil: atualização do readme
+### 0c09296 - Ajustes Finais (#5)
 
-### c236073 - docs: update CHANGELOG.md for v0.0.9
+### 5f91102 - docs: update CHANGELOG.md for v0.0.10
