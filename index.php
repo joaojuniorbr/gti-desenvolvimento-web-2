@@ -8,7 +8,7 @@ include './components/header.php';
 $menu = array(
   array('label' => 'Aula 02', 'url' => './exercicios-02/index.php'),
   array('label' => 'Aula 03', 'url' => './exercicios-03/index.php'),
-  array('label' => 'Aula 04', 'url' => './exercicios-04/index.php'),
+  array('label' => 'Aula 04', 'url' => './aula-04/index.php'),
   array('label' => 'Aula 05', 'url' => './aula-05/index.php'),
   array('label' => 'Aula 06', 'url' => './aula-06-aps/index.php'),
   array('label' => 'Aula 07', 'url' => './aula-07/index.php'),
