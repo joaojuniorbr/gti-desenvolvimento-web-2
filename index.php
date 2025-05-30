@@ -6,8 +6,8 @@ $configuration = [
 include './components/header.php';
 
 $menu = array(
-  array('label' => 'Aula 02', 'url' => './exercicios-02/index.php'),
-  array('label' => 'Aula 03', 'url' => './exercicios-03/index.php'),
+  array('label' => 'Aula 02', 'url' => './aula-02/index.php'),
+  array('label' => 'Aula 03', 'url' => './aula-03/index.php'),
   array('label' => 'Aula 04', 'url' => './aula-04/index.php'),
   array('label' => 'Aula 05', 'url' => './aula-05/index.php'),
   array('label' => 'Aula 06', 'url' => './aula-06-aps/index.php'),
@@ -17,9 +17,17 @@ $menu = array(
 ?>
 <div class="container mx-auto py-10">
 
-  <img src="./assets/images/pixeltrue-web-development-1.svg" class="mx-auto h-auto max-w-lg mb-10 w-full" />
+  <img src="./assets/images/pixeltrue-web-development-1.svg" class="mx-auto h-auto max-w-sm mb-10 w-full" />
 
-  <ul class="grid grid-cols-2 md:grid-cols-5 gap-4">
+  <h1 class="text-lg md:text-3xl font-bold text-center mb-4">Bem-vindo à Página de Exercícios de Desenvolvimento Web II (GTI)</h1>
+
+  <article class="text-gray-600 space-y-2 text-center text-sm mb-10">
+    <p>Esta página reúne os exercícios práticos da disciplina <em>Desenvolvimento Web II</em>, ministrada pelo Prof. Tieppo, conforme o <a href="https://sites.google.com/site/proftieppo/disciplinas/desenv-web-ii-gti" target="_blank" class="underline">programa disponível no site da disciplina</a>. Aqui, você encontrará uma coleção de atividades desenvolvidas para consolidar conceitos essenciais como HTML, CSS, JavaScript, frameworks front-end e integração com back-end. </p>
+
+    <p>Todos os códigos-fonte estão organizados no <a href="https://github.com/joaojuniorbr/gti-desenvolvimento-web-2" target="_blank" class="underline">repositório GitHub</a>, onde você pode explorar as implementações.</p>
+  </article>
+
+  <ul class="grid grid-cols-2 md:grid-cols-6 gap-4">
     <?php for ($i = 0; $i < count($menu); $i++): ?>
       <li>
         <a

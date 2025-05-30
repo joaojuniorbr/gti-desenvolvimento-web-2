@@ -65,7 +65,7 @@
               $activeClass = (basename($_SERVER['REQUEST_URI']) === basename($item['url'])) ? 'text-orange-500 bg-orange-50 font-bold' : 'text-slate-800';
               ?>
               <li class="text-xs p-3 border-b border-slate-200 <?php echo $activeClass; ?>">
-                <a href="<?php echo $item['url']; ?>">
+                <a href="<?php echo $item['url']; ?>" class="block" target="<?php echo $item['target'] ?? '_self'; ?>">
                   <?php echo $item['label']; ?>
                 </a>
               </li>
@@ -91,7 +91,7 @@
                   $activeClass = (basename($_SERVER['REQUEST_URI']) === basename($item['url'])) ? 'text-orange-500 bg-white' : 'text-white hover:bg-white/10';
                   ?>
                   <li class="text-xs">
-                    <a href="<?php echo $item['url']; ?>" class="<?php echo $activeClass; ?> flex py-1 px-2 rounded duration-300 ease-in-out">
+                    <a href="<?php echo $item['url']; ?>" class="<?php echo $activeClass; ?> flex py-1 px-2 rounded duration-300 ease-in-out" target="<?php echo $item['target'] ?? '_self'; ?>">
                       <?php echo $item['label']; ?>
                     </a>
                   </li>
