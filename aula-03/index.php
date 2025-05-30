@@ -13,16 +13,6 @@ include '../components/header.php';
 
   <img src="../assets/images/stuck-at-home-quality-time.png" class="mx-auto h-auto max-w-md mb-10 w-full" />
 
-  <ul class="grid grid-cols-2 md:grid-cols-4 gap-4">
-    <?php for ($i = 1; $i < count($config['menu']); $i++): ?>
-      <li>
-        <a
-          href="<?php echo $config['menu'][$i]['url']; ?>"
-          class="block bg-white border border-orange-500 text-orange-500 text-center py-4 rounded shadow text-xs hover:bg-orange-500 hover:text-white transition duration-300 ease-in-out">
-          <?php echo $config['menu'][$i]['label']; ?>
-        </a>
-      </li>
-    <?php endfor; ?>
-  </ul>
+  <?php include '../components/menu.php' ?>
 </div>
 <?php include '../components/footer.php'; ?>
