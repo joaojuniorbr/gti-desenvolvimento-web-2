@@ -1,4 +1,18 @@
 
+## v0.0.14
+
+### 9a77f29 - Merge pull request #7 from joaojuniorbr/aula-3
+
+### 7abaeb9 - :rocket: adjuste na docker para liberar mysqli no fly.io
+
+### 9d1f64d - :recycle: (database) adição de variaveis de ambiente para base de dados
+
+### 9af289a - :recycle: (menu) refatoração do menu com uma padronização
+
+### d589580 - :recycle: (aula 3) refatoração na interface das aulas
+
+### 4ff45eb - docs: update CHANGELOG.md for v0.0.13
+
 ## v0.0.13
 
 ### d9afd8c - Merge pull request #6 from joaojuniorbr/aula
