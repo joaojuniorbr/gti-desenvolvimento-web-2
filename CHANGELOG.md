@@ -1,4 +1,16 @@
 
+## v0.0.16
+
+### d2c10c0 - Merge pull request #9 from joaojuniorbr/aula-10
+
+### c319086 - :sparkles: (aula 10) adicionada a página para adicionar usuário
+
+### 9525a48 - :sparkles: (aula 10) fluxo de autenticacao
+
+### 86455d9 - :recycle: mudança na arquitetura para reuso de classes
+
+### 41af011 - docs: update CHANGELOG.md for v0.0.15
+
 ## v0.0.15
 
 ### 253dda6 - Merge pull request #8 from joaojuniorbr/aula-9
