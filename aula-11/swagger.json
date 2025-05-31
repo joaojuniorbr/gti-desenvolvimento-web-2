@@ -1,0 +1,194 @@
+{
+	"openapi": "3.0.0",
+	"info": {
+		"title": "Aula 11 - Web Services",
+		"version": "1.0.0",
+		"description": "Serviço de gerenciamento de pessoas"
+	},
+	"paths": {
+		"/aula-11/api.php": {
+			"get": {
+				"summary": "Listar pessoas ou buscar por ID",
+				"parameters": [
+					{
+						"name": "id",
+						"in": "query",
+						"required": false,
+						"schema": {
+							"type": "string"
+						},
+						"description": "ID da pessoa (se fornecido, retorna uma pessoa)"
+					},
+					{
+						"name": "page",
+						"in": "query",
+						"required": false,
+						"schema": {
+							"type": "string"
+						},
+						"description": "Número da página a ser retornada"
+					},
+					{
+						"name": "limit",
+						"in": "query",
+						"required": false,
+						"schema": {
+							"type": "string"
+						},
+						"description": "Número máximo de resultados a serem retornados"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "Lista de pessoas ou uma pessoa específica",
+						"content": {
+							"application/json": {
+								"example": {
+									"success": true,
+									"data": [
+										{
+											"id": "abc123",
+											"nome": "Maria",
+											"email": "maria@email.com",
+											"cpf": "123.456.789-00",
+											"nascimento": "1990-01-01"
+										}
+									]
+								}
+							}
+						}
+					}
+				}
+			},
+			"post": {
+				"summary": "Criar ou atualizar uma pessoa",
+				"requestBody": {
+					"required": true,
+					"content": {
+						"application/json": {
+							"schema": {
+								"type": "object",
+								"properties": {
+									"id": {
+										"type": "string",
+										"description": "Se informado, atualiza a pessoa"
+									},
+									"nome": {
+										"type": "string"
+									},
+									"email": {
+										"type": "string",
+										"format": "email"
+									},
+									"senha": {
+										"type": "string",
+										"description": "Senha com no mínimo 6 caracteres"
+									},
+									"cpf": {
+										"type": "string"
+									},
+									"nascimento": {
+										"type": "string",
+										"format": "date"
+									}
+								},
+								"required": ["nome", "email", "senha", "cpf", "nascimento"]
+							},
+							"example": {
+								"nome": "João da Silva",
+								"email": "joao@email.com",
+								"senha": "123456",
+								"cpf": "111.222.333-44",
+								"nascimento": "1985-03-15"
+							}
+						}
+					}
+				},
+				"responses": {
+					"200": {
+						"description": "Pessoa criada ou atualizada",
+						"content": {
+							"application/json": {
+								"example": {
+									"success": true,
+									"message": "Pessoa criada com sucesso."
+								}
+							}
+						}
+					}
+				}
+			},
+			"delete": {
+				"summary": "Deletar uma pessoa",
+				"parameters": [
+					{
+						"name": "id",
+						"in": "query",
+						"required": true,
+						"schema": {
+							"type": "string"
+						},
+						"description": "ID da pessoa a ser deletada"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "Resultado da exclusão",
+						"content": {
+							"application/json": {
+								"example": {
+									"success": true,
+									"message": "Pessoa deletada com sucesso."
+								}
+							}
+						}
+					}
+				}
+			}
+		},
+		"/aula-11/api.php?checkPassword=1": {
+			"post": {
+				"summary": "Verificar e-mail e senha",
+				"requestBody": {
+					"required": true,
+					"content": {
+						"application/x-www-form-urlencoded": {
+							"schema": {
+								"type": "object",
+								"properties": {
+									"email": {
+										"type": "string",
+										"format": "email"
+									},
+									"senha": {
+										"type": "string"
+									}
+								},
+								"required": ["email", "senha"]
+							}
+						}
+					}
+				},
+				"responses": {
+					"200": {
+						"description": "Resultado da verificação",
+						"content": {
+							"application/json": {
+								"example": {
+									"status": "success",
+									"data": {
+										"id": "abc123",
+										"nome": "Maria",
+										"email": "maria@email.com",
+										"cpf": "123.456.789-00",
+										"nascimento": "1990-01-01"
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}

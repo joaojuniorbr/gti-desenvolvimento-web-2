@@ -14,9 +14,6 @@ $configuration = [
 
 include '../components/header.php';
 
-
-
-
 $user = $auth->getUser();
 
 ?>

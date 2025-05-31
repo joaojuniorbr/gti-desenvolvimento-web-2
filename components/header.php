@@ -25,6 +25,7 @@
     <script src="//unpkg.com/alpinejs" defer></script>
   <?php endif; ?>
 
+  <link rel="stylesheet" href="https://unpkg.com/swagger-ui-dist@5.11.0/swagger-ui.css" />
 
   <script src="https://cdn.tailwindcss.com"></script>
 
