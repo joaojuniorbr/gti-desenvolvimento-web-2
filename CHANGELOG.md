@@ -1,4 +1,10 @@
 
+## v0.0.17
+
+### 833b91d - :ambulance: (aula 10) ajuste na ordem para autenticacao
+
+### 31360a9 - docs: update CHANGELOG.md for v0.0.16
+
 ## v0.0.16
 
 ### d2c10c0 - Merge pull request #9 from joaojuniorbr/aula-10
