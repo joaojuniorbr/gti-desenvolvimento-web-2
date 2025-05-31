@@ -1,6 +1,6 @@
 <?php
 require_once '../../utils/database.php';
-require_once '../class/Pessoas.php';
+require_once '../../common/class/Pessoas.php';
 
 header('Content-Type: application/json');
 

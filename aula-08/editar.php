@@ -1,7 +1,6 @@
 <?php
 
 require_once 'config.php';
-require_once 'class/Pessoas.php';
 
 $configuration = [
   'title' => 'Aula 08 - Editar Pessoa',
