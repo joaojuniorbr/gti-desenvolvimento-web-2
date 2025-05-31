@@ -9,7 +9,7 @@ require_once('./config.php');
 
 $configuration = [
   'logo' => 'Aula 09',
-  'title' => 'Aula 09 - Exercício 1',
+  'title' => 'Exercício 1',
   'menu' => $config['menu']
 ];
 
@@ -19,7 +19,7 @@ $nome = isset($_COOKIE['usuario']) ? $_COOKIE['usuario'] : 'Visitante';
 ?>
 
 <div class="container mx-auto py-10 max-w-md text-center">
-  <h1 class="text-2xl font-bold mb-4">Aula 09 - Exercício 1</h1>
+  <h1 class="text-2xl font-bold mb-4">Exercício 1</h1>
 
   <form method="POST" class="mb-6 space-y-4 bg-white p-6 rounded shadow">
     <input
