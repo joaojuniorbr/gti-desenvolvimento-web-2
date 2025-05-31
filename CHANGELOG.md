@@ -1,4 +1,22 @@
 
+## v0.0.15
+
+### 253dda6 - Merge pull request #8 from joaojuniorbr/aula-9
+
+### 7fb9c11 - Update aula-09/index.php
+
+### 5eee8c9 - :recycle: (aula 9) adicao de um item no menu e troca da imagem inicial
+
+### 08d9ccf - :sparkles: (aula 9) exercicio 4 com as 3 etapas
+
+### c78f4c0 - :sparkles: (aula 9) exercicio 3
+
+### 520b58f - :sparkles: (aula 9) exercicio 2
+
+### c9b2a24 - :sparkles: (aula 09) exercicio 1
+
+### ff0149b - docs: update CHANGELOG.md for v0.0.14
+
 ## v0.0.14
 
 ### 9a77f29 - Merge pull request #7 from joaojuniorbr/aula-3
