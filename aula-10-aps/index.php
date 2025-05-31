@@ -1,6 +1,12 @@
 <?php
 require_once 'config.php';
 
+$auth = new Authentication();
+if (!$auth->isLoggedIn()) {
+  header('Location: ./login.php');
+  exit;
+}
+
 $configuration = [
   'title' => 'Aula 10 - Atividade Prática Supervisionada (APS)',
   'logo' => 'Aula 10 - APS',
@@ -9,11 +15,7 @@ $configuration = [
 include '../components/header.php';
 
 
-$auth = new Authentication();
-if (!$auth->isLoggedIn()) {
-  header('Location: ./login.php');
-  exit;
-}
+
 
 $user = $auth->getUser();
 
