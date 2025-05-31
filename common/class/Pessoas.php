@@ -75,6 +75,16 @@ class Pessoas
     return $result->num_rows > 0 ? $result->fetch_object() : null;
   }
 
+  public function findByEmail($email)
+  {
+    $stmt = $this->conn->prepare("SELECT id, nome, email, cpf, nascimento FROM pessoas WHERE email = ?");
+    $stmt->bind_param("s", $email);
+    $stmt->execute();
+
+    $result = $stmt->get_result();
+    return $result->num_rows > 0 ? $result->fetch_object() : null;
+  }
+
   public function list($page = 1, $limit = 10)
   {
     $offset = ($page - 1) * $limit;
@@ -115,6 +125,11 @@ class Pessoas
     $values = [];
 
     foreach ($data as $key => $value) {
+
+      if ($key === 'senha') {
+        $value = password_hash($value, PASSWORD_BCRYPT);
+      }
+
       if ($value !== null && $value !== '') {
         $fields[] = "$key = ?";
         $values[] = $value;
@@ -138,7 +153,7 @@ class Pessoas
     return (object)['success' => true, 'data' => $this->findById($id)];
   }
 
-  public function login($email, $senha)
+  public function checkPassword($email, $senha)
   {
     $stmt = $this->conn->prepare("SELECT * FROM pessoas WHERE email = ?");
     $stmt->bind_param("s", $email);
@@ -146,15 +161,16 @@ class Pessoas
 
     $result = $stmt->get_result();
     if ($result->num_rows === 0) {
-      return (object)['success' => false, 'message' => 'Email não encontrado.'];
+      return (object)['status' => 'error', 'message' => 'Email não encontrado.'];
     }
 
     $pessoa = $result->fetch_object();
+
     if (!password_verify($senha, $pessoa->senha)) {
-      return (object)['success' => false, 'message' => 'Senha incorreta.'];
+      return (object)['status' => 'error', 'message' => 'Senha incorreta.'];
     }
 
-    return (object)['success' => true, 'data' => $pessoa];
+    return (object)['status' => 'success', 'data' => $pessoa];
   }
 
   public function maskCpf($cpf)

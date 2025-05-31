@@ -1,7 +1,7 @@
 <?php
 
 require_once '../../utils/database.php';
-require_once '../class/Pessoas.php';
+require_once '../../common/class/Pessoas.php';
 
 if (!isset($_GET['id'])) {
   header('Location: ' . $_SERVER['HTTP_REFERER']);
