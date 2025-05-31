@@ -89,7 +89,7 @@ class Pessoas
   {
     $offset = ($page - 1) * $limit;
 
-    $stmt = $this->conn->prepare("SELECT * FROM pessoas ORDER BY nome LIMIT ? OFFSET ?");
+    $stmt = $this->conn->prepare("SELECT id, nome, email, cpf, nascimento FROM pessoas ORDER BY nome LIMIT ? OFFSET ?");
     $stmt->bind_param("ii", $limit, $offset);
     $stmt->execute();
 
