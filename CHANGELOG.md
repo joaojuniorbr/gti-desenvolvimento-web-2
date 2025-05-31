@@ -1,4 +1,12 @@
 
+## v0.0.18
+
+### df629d7 - Merge pull request #10 from joaojuniorbr/aula-11
+
+### ec026a1 - :sparkles: (aula 11) adicionado o swagger para a gestão dos dados da api
+
+### 898f3ba - docs: update CHANGELOG.md for v0.0.17
+
 ## v0.0.17
 
 ### 833b91d - :ambulance: (aula 10) ajuste na ordem para autenticacao
