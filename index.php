@@ -13,6 +13,7 @@ $menu = array(
   array('label' => 'Aula 06', 'url' => './aula-06-aps/index.php'),
   array('label' => 'Aula 07', 'url' => './aula-07/index.php'),
   array('label' => 'Aula 08', 'url' => './aula-08/index.php'),
+  array('label' => 'Aula 09', 'url' => './aula-09/index.php'),
 );
 ?>
 <div class="container mx-auto py-10">
@@ -27,14 +28,14 @@ $menu = array(
     <p>Todos os códigos-fonte estão organizados no <a href="https://github.com/joaojuniorbr/gti-desenvolvimento-web-2" target="_blank" class="underline">repositório GitHub</a>, onde você pode explorar as implementações.</p>
   </article>
 
-  <ul class="grid grid-cols-2 md:grid-cols-6 gap-4">
+  <ul class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4">
     <?php for ($i = 0; $i < count($menu); $i++): ?>
       <li>
         <a
           href="<?php echo $menu[$i]['url']; ?>"
-          class="flex items-center gap-2 bg-white border border-orange-500 text-orange-500 text-center py-2 px-4 rounded shadow text-xs hover:bg-orange-500 hover:text-white transition duration-300 ease-in-out">
-          <i class="ri-arrow-right-s-line text-2xl"></i>
+          class="flex items-center justify-between gap-2 bg-white border border-orange-500 text-orange-500 py-2 px-6 rounded-full shadow text-xs hover:bg-orange-500 hover:text-white transition duration-300 ease-in-out">
           <span><?php echo $menu[$i]['label']; ?></span>
+          <i class="ri-arrow-right-s-line text-2xl -mr-2"></i>
         </a>
       </li>
     <?php endfor; ?>
