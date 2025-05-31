@@ -40,6 +40,10 @@ if (isset($_SESSION[$SESSION_KEY])) {
       Entrar
     </button>
   </form>
+
+  <div class="mt-8 text-xs text-center">
+    <a href="../aula-08/adicionar.php" class="text-indigo-600 hover:underline" target="_blank">Não tem uma conta?</a>
+  </div>
 </article>
 
 <?php include '../components/footer.php'; ?>
