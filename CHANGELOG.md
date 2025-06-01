@@ -1,4 +1,10 @@
 
+## v0.0.19
+
+### 86b1dc0 - :chart_with_upwards_trend: (analytics) adicionado analytics ao projeto
+
+### 26e04ee - docs: update CHANGELOG.md for v0.0.18
+
 ## v0.0.18
 
 ### df629d7 - Merge pull request #10 from joaojuniorbr/aula-11
