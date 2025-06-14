@@ -1,4 +1,16 @@
 
+## v0.0.20
+
+### d9b697e - Merge pull request #11 from joaojuniorbr/aula-12
+
+### 3b4df8a - Update aula-12/api.php
+
+### ea68b8d - :sparkles: (aula 12) exercicio 2
+
+### e2ae585 - :sparkles: (aula 12) exercicio 1
+
+### ea92aa7 - docs: update CHANGELOG.md for v0.0.19
+
 ## v0.0.19
 
 ### 86b1dc0 - :chart_with_upwards_trend: (analytics) adicionado analytics ao projeto
