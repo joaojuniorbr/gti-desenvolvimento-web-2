@@ -2,6 +2,7 @@
 
 include '../assets/styles.php';
 include '../utils/database.php';
+include '../common/class/Cidades.php';
 
 $menu = [];
 

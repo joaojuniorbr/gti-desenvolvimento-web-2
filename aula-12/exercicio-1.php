@@ -17,7 +17,6 @@ define('OPENWEATHER_API_KEY', '4aba702e93efe06daf7c8e2373453709');
     Exercício 1
   </h1>
 
-
   <form @submit.prevent="buscarTempo" class="flex justify-center gap-3 mb-10 max-w-sm mx-auto w-full">
     <select x-model="cidade" class="border border-gray-300 rounded p-4 w-full" required>
       <option value="" disabled>Escolha uma cidade</option>
