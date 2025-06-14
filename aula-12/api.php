@@ -17,13 +17,13 @@ class ApiCidades
   public function getEstados()
   {
     $data = $this->cidades->getEstados();
-    return json_encode(array_merge(['success' => true, 'data' => $data]));
+    return json_encode(['success' => true, 'data' => $data]);
   }
 
   public function getCidades($estado)
   {
     $data = $this->cidades->getCidades($estado);
-    return json_encode(array_merge(['success' => true, 'data' => $data]));
+    return json_encode(['success' => true, 'data' => $data]);
   }
 }
 
