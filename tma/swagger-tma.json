@@ -1,0 +1,171 @@
+{
+	"openapi": "3.0.0",
+	"info": {
+		"title": "Tech Manager Academy API",
+		"version": "1.0.0",
+		"description": "API simples em PHP utilizando sessão para autenticação de usuários."
+	},
+	"paths": {
+		"/tma/api.php?action=login": {
+			"post": {
+				"summary": "Login do usuário",
+				"requestBody": {
+					"required": true,
+					"content": {
+						"application/json": {
+							"schema": {
+								"type": "object",
+								"properties": {
+									"email": { "type": "string" },
+									"senha": { "type": "string" }
+								},
+								"required": ["email", "senha"]
+							}
+						}
+					}
+				},
+				"responses": {
+					"200": {
+						"description": "Login bem-sucedido com dados do usuário."
+					},
+					"401": {
+						"description": "Credenciais inválidas."
+					}
+				}
+			}
+		},
+		"/tma/api.php?action=checkAuth": {
+			"get": {
+				"summary": "Verifica se o usuário está autenticado",
+				"responses": {
+					"200": {
+						"description": "Retorna status de autenticação e dados do usuário, se estiver logado."
+					}
+				}
+			}
+		},
+		"/tma/api.php?action=logout": {
+			"get": {
+				"summary": "Logout do usuário",
+				"responses": {
+					"200": {
+						"description": "Sessão encerrada com sucesso."
+					}
+				}
+			}
+		},
+		"/tma/api.php?action=profile": {
+			"get": {
+				"summary": "Retorna dados do usuário autenticado",
+				"responses": {
+					"200": {
+						"description": "Dados do perfil do usuário."
+					},
+					"401": {
+						"description": "Usuário não autenticado."
+					}
+				}
+			}
+		},
+		"/tma/api.php?action=createPessoa": {
+			"post": {
+				"summary": "Cria uma nova pessoa",
+				"requestBody": {
+					"required": true,
+					"content": {
+						"application/json": {
+							"schema": {
+								"type": "object",
+								"properties": {
+									"nome": { "type": "string" },
+									"email": { "type": "string" },
+									"senha": { "type": "string" }
+								},
+								"required": ["nome", "email", "senha"]
+							}
+						}
+					}
+				},
+				"responses": {
+					"200": {
+						"description": "Pessoa criada com sucesso."
+					}
+				}
+			}
+		},
+		"/tma/api.php?action=getPessoaById&id={id}": {
+			"get": {
+				"summary": "Busca uma pessoa pelo ID",
+				"parameters": [
+					{
+						"in": "query",
+						"name": "id",
+						"schema": { "type": "integer" },
+						"required": true
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "Dados da pessoa encontrada."
+					},
+					"404": {
+						"description": "Pessoa não encontrada."
+					}
+				}
+			}
+		},
+		"/tma/api.php?action=updatePessoa&id={id}": {
+			"put": {
+				"summary": "Atualiza dados de uma pessoa",
+				"parameters": [
+					{
+						"in": "query",
+						"name": "id",
+						"schema": { "type": "integer" },
+						"required": true
+					}
+				],
+				"requestBody": {
+					"required": true,
+					"content": {
+						"application/json": {
+							"schema": {
+								"type": "object",
+								"properties": {
+									"nome": { "type": "string" },
+									"email": { "type": "string" }
+								}
+							}
+						}
+					}
+				},
+				"responses": {
+					"200": {
+						"description": "Pessoa atualizada com sucesso."
+					}
+				}
+			}
+		},
+		"/tma/api.php?action=deletePessoa&id={id}": {
+			"delete": {
+				"summary": "Deleta uma pessoa",
+				"parameters": [
+					{
+						"in": "query",
+						"name": "id",
+						"schema": { "type": "integer" },
+						"required": true
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "Pessoa deletada com sucesso."
+					},
+					"404": {
+						"description": "Pessoa não encontrada."
+					}
+				}
+			}
+		}
+	}
+}
