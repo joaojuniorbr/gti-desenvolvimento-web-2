@@ -1,5 +1,13 @@
 <?php
 
+session_set_cookie_params([
+  'lifetime' => 0,
+  'path' => '/',
+  'domain' => '',
+  'secure' => true,
+  'httponly' => true,
+  'samesite' => 'None'
+]);
 session_start();
 
 $origin = $_SERVER['HTTP_ORIGIN'] ?? 'https://techmanager-academy-git-auth-joaojunior.vercel.app';
@@ -68,7 +76,8 @@ class ApiTma
     }
   }
 
-  public function login($email, $senha) {
+  public function login($email, $senha)
+  {
     $result = $this->pessoas->checkPassword($email, $senha);
     if ($result->status === 'success') {
       session_regenerate_id(true);
@@ -78,16 +87,18 @@ class ApiTma
     return json_encode($result);
   }
 
-  public function checkAuth() {
+  public function checkAuth()
+  {
     $isAuthenticated = isset($_SESSION['auth']) && $_SESSION['auth'] === true;
-  
+
     return json_encode([
       'authenticated' => $isAuthenticated,
       'user' => $_SESSION['user'] ?? null
     ]);
   }
-  
-  public function logout() {
+
+  public function logout()
+  {
     session_destroy();
     return json_encode([
       'success' => true,
@@ -127,14 +138,14 @@ switch ($action) {
         echo json_encode(['success' => false, 'message' => 'Não autenticado.']);
         break;
       }
-  
+
       $id = $_SESSION['user']->id ?? null;
-  
+
       if (!$id) {
         echo json_encode(['success' => false, 'message' => 'ID de usuário não encontrado na sessão.']);
         break;
       }
-  
+
       echo $api->getPessoaById($id);
     }
     break;
@@ -145,14 +156,14 @@ switch ($action) {
         echo json_encode(['success' => false, 'message' => 'Não autenticado.']);
         break;
       }
-  
+
       $id = $_SESSION['user']->id ?? null;
-  
+
       if (!$id) {
         echo json_encode(['success' => false, 'message' => 'ID de usuário não encontrado na sessão.']);
         break;
       }
-  
+
       echo $api->updatePessoa($id, $input);
     }
     break;
@@ -162,7 +173,7 @@ switch ($action) {
       echo json_encode($cursos->listarCursos());
     }
     break;
-  
+
   default:
     echo json_encode(['error' => 'Ação inválida.']);
     break;
