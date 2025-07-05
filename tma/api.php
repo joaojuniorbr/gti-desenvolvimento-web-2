@@ -2,9 +2,11 @@
 
 session_start();
 
+$origin = $_SERVER['HTTP_ORIGIN'] ?? 'https://techmanager-academy-git-auth-joaojunior.vercel.app';
+
 header('HTTP/1.1 200 OK');
 header('Content-Type: application/json');
-header("Access-Control-Allow-Origin: " . $_SERVER['HTTP_ORIGIN']);
+header("Access-Control-Allow-Origin: " . $origin);
 header("Access-Control-Allow-Credentials: true");
 header("Access-Control-Allow-Headers: Content-Type, Authorization");
 header("Access-Control-Allow-Methods: GET, POST, OPTIONS, PUT, DELETE");
@@ -95,6 +97,7 @@ class ApiTma
 }
 
 $api = new ApiTma();
+$cursos = new Cursos($mysqli);
 
 $action = $_GET['action'] ?? null;
 $method = $_SERVER['REQUEST_METHOD'];
@@ -151,6 +154,12 @@ switch ($action) {
       }
   
       echo $api->updatePessoa($id, $input);
+    }
+    break;
+
+  case 'cursos':
+    if ($method === 'GET') {
+      echo json_encode($cursos->listarCursos());
     }
     break;
   

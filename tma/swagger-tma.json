@@ -166,6 +166,16 @@
 					}
 				}
 			}
+		},
+		"/tma/api.php?action=cursos": {
+			"get": {
+				"summary": "Listar Cursos",
+				"responses": {
+					"200": {
+						"description": "Listagem de cursos cadastrados na base."
+					}
+				}
+			}
 		}
 	}
 }

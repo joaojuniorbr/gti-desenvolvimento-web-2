@@ -7,7 +7,7 @@ loadEnv();
 $database['server'] = getenv('MYSQL_HOST') ?? 'localhost';
 $database['user'] = getenv('MYSQL_USER') ?? 'joaojunior';
 $database['password'] = getenv('MYSQL_PASSWORD') ?? 'teste@123';
-$database['database'] = getenv('MYSQL_DATABASE') ?? 'ifprweb';
+$database['database'] = getenv('MYSQL_DATABASE') ?? '';
 $database['port'] = (int)(getenv('MYSQL_PORT') ?? 3306);
 
 mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
