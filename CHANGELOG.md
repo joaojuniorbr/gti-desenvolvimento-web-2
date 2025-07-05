@@ -1,4 +1,10 @@
 
+## v0.0.23
+
+### 75bb44f - :pencil: (documentacao) atualizada a documentação
+
+### 7ac00a4 - docs: update CHANGELOG.md for v0.0.22
+
 ## v0.0.22
 
 ### 19d22c2 - Busca de Cursos (#13)
