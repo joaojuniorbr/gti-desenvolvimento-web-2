@@ -186,6 +186,40 @@
 					}
 				}
 			}
+		},
+		"/tma/api.php?action=contatos": {
+			"get": {
+				"summary": "Listar Contatos",
+				"responses": {
+					"200": {
+						"description": "Listagem de depoimentos dos usuários."
+					}
+				}
+			},
+			"post":{
+				"summary" : "Salvar contatos",
+				"requestBody": {
+					"required": true,
+					"content": {
+						"application/json": {
+							"schema": {
+								"type": "object",
+								"properties": {
+									"nome": { "type": "string" },
+									"email": { "type": "string" },
+									"telefone": { "type": "string" }
+								},
+								"required": ["nome", "email", "telefone"]
+							}
+						}
+					}
+				},
+				"responses":{
+					"200":{
+						"description":"Dados Salvos"
+					}
+				}
+			}
 		}
 	}
 }

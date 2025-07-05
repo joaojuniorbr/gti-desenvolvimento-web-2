@@ -110,6 +110,7 @@ class ApiTma
 $api = new ApiTma();
 $cursos = new Cursos($mysqli);
 $depoimentos = new Depoimentos($mysqli);
+$contatos = new Contato($mysqli);
 
 $action = $_GET['action'] ?? null;
 $method = $_SERVER['REQUEST_METHOD'];
@@ -178,6 +179,20 @@ switch ($action) {
   case 'depoimentos':
     if($method === 'GET'){
       echo json_encode($depoimentos->listarDepoimentos());
+    }
+    break;
+
+  case 'contatos':
+    if($method === 'GET'){
+      echo json_encode($contatos->listarContatos());
+    } elseif ($method === 'POST'){
+      $save = $contatos->salvarContatos([
+        'nome' => $input['nome'],
+        'email' => $input['email'],
+        'telefone' => $input['telefone']
+      ]);
+
+      echo json_encode($save);
     }
     break;
 
