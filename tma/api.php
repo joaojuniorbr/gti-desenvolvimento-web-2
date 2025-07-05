@@ -109,6 +109,7 @@ class ApiTma
 
 $api = new ApiTma();
 $cursos = new Cursos($mysqli);
+$depoimentos = new Depoimentos($mysqli);
 
 $action = $_GET['action'] ?? null;
 $method = $_SERVER['REQUEST_METHOD'];
@@ -171,6 +172,12 @@ switch ($action) {
   case 'cursos':
     if ($method === 'GET') {
       echo json_encode($cursos->listarCursos());
+    }
+    break;
+
+  case 'depoimentos':
+    if($method === 'GET'){
+      echo json_encode($depoimentos->listarDepoimentos());
     }
     break;
 

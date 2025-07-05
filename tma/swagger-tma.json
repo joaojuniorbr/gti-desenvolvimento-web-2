@@ -176,6 +176,16 @@
 					}
 				}
 			}
+		},
+		"/tma/api.php?action=depoimentos": {
+			"get": {
+				"summary": "Listar Depoimentos",
+				"responses": {
+					"200": {
+						"description": "Listagem de depoimentos dos usuários."
+					}
+				}
+			}
 		}
 	}
 }
