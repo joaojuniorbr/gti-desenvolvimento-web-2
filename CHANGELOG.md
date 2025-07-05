@@ -1,4 +1,10 @@
 
+## v0.0.22
+
+### 19d22c2 - Busca de Cursos (#13)
+
+### c3d2cb0 - docs: update CHANGELOG.md for v0.0.21
+
 ## v0.0.21
 
 ### 56acc10 - Merge pull request #12 from joaojuniorbr/tma
