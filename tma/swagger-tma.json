@@ -3,11 +3,19 @@
 	"info": {
 		"title": "Tech Manager Academy API",
 		"version": "1.0.0",
-		"description": "API simples em PHP utilizando sessão para autenticação de usuários."
+		"description": "API desenvolvida em PHP que utiliza sessões para autenticação de usuários. Fornece endpoints para login, gerenciamento de perfis, controle de usuários (pessoas), listagem de cursos e depoimentos, além de uma interface para recebimento e consulta de contatos."
 	},
+	"tags": [
+		{ "name": "Auth", "description": "Autenticação e sessão do usuário" },
+		{ "name": "Pessoa", "description": "Gerenciamento de usuários" },
+		{ "name": "Cursos", "description": "Gerenciamento de cursos" },
+		{ "name": "Depoimentos", "description": "Depoimentos dos usuários" },
+		{ "name": "Contatos", "description": "Mensagens e contatos recebidos" }
+	],
 	"paths": {
 		"/tma/api.php?action=login": {
 			"post": {
+				"tags": ["Auth"],
 				"summary": "Login do usuário",
 				"requestBody": {
 					"required": true,
@@ -25,17 +33,14 @@
 					}
 				},
 				"responses": {
-					"200": {
-						"description": "Login bem-sucedido com dados do usuário."
-					},
-					"401": {
-						"description": "Credenciais inválidas."
-					}
+					"200": { "description": "Login bem-sucedido com dados do usuário." },
+					"401": { "description": "Credenciais inválidas." }
 				}
 			}
 		},
 		"/tma/api.php?action=checkAuth": {
 			"get": {
+				"tags": ["Auth"],
 				"summary": "Verifica se o usuário está autenticado",
 				"responses": {
 					"200": {
@@ -46,29 +51,26 @@
 		},
 		"/tma/api.php?action=logout": {
 			"get": {
+				"tags": ["Auth"],
 				"summary": "Logout do usuário",
 				"responses": {
-					"200": {
-						"description": "Sessão encerrada com sucesso."
-					}
+					"200": { "description": "Sessão encerrada com sucesso." }
 				}
 			}
 		},
 		"/tma/api.php?action=profile": {
 			"get": {
+				"tags": ["Auth"],
 				"summary": "Retorna dados do usuário autenticado",
 				"responses": {
-					"200": {
-						"description": "Dados do perfil do usuário."
-					},
-					"401": {
-						"description": "Usuário não autenticado."
-					}
+					"200": { "description": "Dados do perfil do usuário." },
+					"401": { "description": "Usuário não autenticado." }
 				}
 			}
 		},
 		"/tma/api.php?action=createPessoa": {
 			"post": {
+				"tags": ["Pessoa"],
 				"summary": "Cria uma nova pessoa",
 				"requestBody": {
 					"required": true,
@@ -87,14 +89,13 @@
 					}
 				},
 				"responses": {
-					"200": {
-						"description": "Pessoa criada com sucesso."
-					}
+					"200": { "description": "Pessoa criada com sucesso." }
 				}
 			}
 		},
 		"/tma/api.php?action=getPessoaById&id={id}": {
 			"get": {
+				"tags": ["Pessoa"],
 				"summary": "Busca uma pessoa pelo ID",
 				"parameters": [
 					{
@@ -105,17 +106,14 @@
 					}
 				],
 				"responses": {
-					"200": {
-						"description": "Dados da pessoa encontrada."
-					},
-					"404": {
-						"description": "Pessoa não encontrada."
-					}
+					"200": { "description": "Dados da pessoa encontrada." },
+					"404": { "description": "Pessoa não encontrada." }
 				}
 			}
 		},
 		"/tma/api.php?action=updatePessoa&id={id}": {
 			"put": {
+				"tags": ["Pessoa"],
 				"summary": "Atualiza dados de uma pessoa",
 				"parameters": [
 					{
@@ -140,14 +138,13 @@
 					}
 				},
 				"responses": {
-					"200": {
-						"description": "Pessoa atualizada com sucesso."
-					}
+					"200": { "description": "Pessoa atualizada com sucesso." }
 				}
 			}
 		},
 		"/tma/api.php?action=deletePessoa&id={id}": {
 			"delete": {
+				"tags": ["Pessoa"],
 				"summary": "Deleta uma pessoa",
 				"parameters": [
 					{
@@ -158,46 +155,40 @@
 					}
 				],
 				"responses": {
-					"200": {
-						"description": "Pessoa deletada com sucesso."
-					},
-					"404": {
-						"description": "Pessoa não encontrada."
-					}
+					"200": { "description": "Pessoa deletada com sucesso." },
+					"404": { "description": "Pessoa não encontrada." }
 				}
 			}
 		},
 		"/tma/api.php?action=cursos": {
 			"get": {
+				"tags": ["Cursos"],
 				"summary": "Listar Cursos",
 				"responses": {
-					"200": {
-						"description": "Listagem de cursos cadastrados na base."
-					}
+					"200": { "description": "Listagem de cursos cadastrados na base." }
 				}
 			}
 		},
 		"/tma/api.php?action=depoimentos": {
 			"get": {
+				"tags": ["Depoimentos"],
 				"summary": "Listar Depoimentos",
 				"responses": {
-					"200": {
-						"description": "Listagem de depoimentos dos usuários."
-					}
+					"200": { "description": "Listagem de depoimentos dos usuários." }
 				}
 			}
 		},
 		"/tma/api.php?action=contatos": {
 			"get": {
+				"tags": ["Contatos"],
 				"summary": "Listar Contatos",
 				"responses": {
-					"200": {
-						"description": "Listagem de depoimentos dos usuários."
-					}
+					"200": { "description": "Listagem de contatos dos usuários." }
 				}
 			},
-			"post":{
-				"summary" : "Salvar contatos",
+			"post": {
+				"tags": ["Contatos"],
+				"summary": "Salvar contatos",
 				"requestBody": {
 					"required": true,
 					"content": {
@@ -214,10 +205,8 @@
 						}
 					}
 				},
-				"responses":{
-					"200":{
-						"description":"Dados Salvos"
-					}
+				"responses": {
+					"200": { "description": "Dados Salvos" }
 				}
 			}
 		}

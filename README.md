@@ -8,34 +8,40 @@ Paraná (IFPR) – Campus Pinhais**.
 
 ## 📌 Visão Geral
 
-Este projeto contém uma coleção de exercícios utilizando **PHP**, **HTML**,
-**CSS**, **JavaScript**, **Alpine.js**, **Tailwind CSS**, **Bootstrap**,
-**jQuery** e **Vue.js**, cobrindo desde lógica de programação e manipulação de
-formulários até dashboards interativos, consumo de dados e simulações.
+Este projeto reúne os exercícios e projetos desenvolvidos ao longo da
+disciplina, utilizando tecnologias como **PHP**, **HTML**, **CSS**,
+**JavaScript**, **Alpine.js**, **Tailwind CSS**, **Bootstrap**, **jQuery** e
+**Vue.js**.
 
-Os exercícios estão organizados por aula, com exemplos práticos de uso de
-arrays, estruturas condicionais, interação via formulário, persistência de dados
-e criação de interfaces responsivas.
+Além dos exercícios semanais, o repositório inclui o projeto **TMA** (Trabalho
+de Conclusão do Semestre), uma aplicação web com autenticação e busca de cursos,
+integrando frontend React e backend PHP com sessões.
 
 ---
 
 ## 📂 Estrutura do Projeto
 
 ```
-
 gti-desenvolvimento-web-2/
+├── aula-02/
+├── aula-03/
 ├── aula-04/
-│   └── \[...].php
 ├── aula-05/
-│   └── \[...].php
+├── aula-06/
 ├── aula-07/
-│   └── \[...].php
 ├── aula-08/
-│   └── \[...].php
+├── aula-09/
+├── aula-10/
+├── aula-11/
+├── aula-12/
 ├── components/
 │   ├── header.php
 │   ├── footer.php
 │   └── menu.php
+├── tma/
+│   ├── index.php
+│   ├── api.php
+│   ├── config.php
 ├── .github/
 │   └── workflows/
 │       └── fly-deploy.yml
@@ -43,7 +49,6 @@ gti-desenvolvimento-web-2/
 ├── Dockerfile
 ├── fly.toml
 └── README.md
-
 ```
 
 ---
@@ -62,9 +67,25 @@ gti-desenvolvimento-web-2/
 ### 🔹 Back-end
 
 - **PHP 8.2+** – Processamento de lógica e dados
-- **Arrays e Estruturas Condicionais**
+- **Sessões PHP** – Autenticação de usuários
 - **Validação de Formulários** – `isset()`, `empty()`, `$_SERVER`
-- **Formulários GET/POST**
+- **Integração com banco de dados**
+- **APIs REST com JSON**
+
+---
+
+## 📁 Destaque: `/tma` – Trabalho de Conclusão do Semestre
+
+A pasta `tma/` contém uma aplicação web com foco em:
+
+- 🔐 **Autenticação de usuários** com sessões PHP
+- 🔍 **Busca de cursos** via API
+- ⚙️ **Integração com frontend React** hospedado na Vercel
+- 🌐 **Deploy do backend via Fly.io** com suporte a cookies cross-site
+- 🧪 **Ambiente seguro com CORS, HTTPS e sessões persistentes**
+
+Esse projeto simula uma aplicação real com separação de frontend e backend,
+autenticação segura e consumo de dados dinâmico.
 
 ---
 
@@ -106,54 +127,33 @@ Ao dar push na branch `main`, o deploy é acionado automaticamente.
 
 ---
 
-## 🎯 Destaques dos Exercícios
+## 🎯 Destaques dos Exercícios por Aula
 
-✅ **Aula 04** – Simulação de pedidos em quiosque, com calculadora de cédulas e
-lógica condicional aplicada.
-
-✅ **Aula 05** – Dashboards interativos com **Alpine.js** e **Tailwind**,
-ranking de vendedores e análise de dados via arrays multidimensionais.
-
-✅ **Aula 07** – Layouts com imagens e estilização avançada.
-
-✅ **Aula 08** – Tabelas responsivas que se adaptam ao tamanho da tela.
-
----
-
-## 🚀 Como Executar Manualmente
-
-### Pré-requisitos
-
-- PHP 8+ instalado
-- Servidor local (XAMPP, WAMP, Laragon, ou PHP embutido)
-- Navegador moderno
-
-### Instalação
-
-```bash
-git clone https://github.com/joaojuniorbr/gti-desenvolvimento-web-2.git
-cd gti-desenvolvimento-web-2
-```
-
-### Acesso manual
-
-- Via navegador:
-
-  ```
-  http://localhost/gti-desenvolvimento-web-2/
-  ```
+| Aula    | Conteúdo Principal                                              |
+| ------- | --------------------------------------------------------------- |
+| Aula 02 | Introdução ao PHP, `echo`, variáveis e operadores               |
+| Aula 03 | Condicionais (`if`, `else`, `switch`) e operadores lógicos      |
+| Aula 04 | Simulação de pedidos, calculadora de troco e lógica condicional |
+| Aula 05 | Dashboards com Alpine.js e Tailwind, ranking de vendedores      |
+| Aula 06 | Arrays associativos e multidimensionais                         |
+| Aula 07 | Layouts com imagens, estilização avançada                       |
+| Aula 08 | Tabelas responsivas e manipulação de dados                      |
+| Aula 09 | Formulários com validação e persistência                        |
+| Aula 10 | Introdução ao JavaScript e manipulação DOM                      |
+| Aula 11 | Integração com Vue.js e formulários reativos                    |
+| Aula 12 | Consumo de APIs e exibição dinâmica de dados                    |
 
 ---
 
 ## 👨‍💻 Autor
 
-**João Junior** Estudante de Gestão da Tecnologia da Informação Instituto
-Federal do Paraná – Campus Pinhais
+**João Junior**  
+Estudante de Gestão da Tecnologia da Informação  
+Instituto Federal do Paraná – Campus Pinhais
 
 🔗 GitHub: [https://github.com/joaojuniorbr](https://github.com/joaojuniorbr)
 
 ---
 
-📌 **Este projeto é voltado exclusivamente para fins educacionais.**
-
-📅 **Atualizado em: Maio de 2025**
+📌 **Este projeto é voltado exclusivamente para fins educacionais.**  
+📅 **Atualizado em: Julho de 2025**
