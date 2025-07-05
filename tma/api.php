@@ -172,20 +172,25 @@ switch ($action) {
 
   case 'cursos':
     if ($method === 'GET') {
-      echo json_encode($cursos->listarCursos());
+      if (isset($_GET["s"])) {
+        echo json_encode($cursos->buscarCursos($_GET["s"]));
+      } else {
+        $limit = isset($_GET["limit"]) ? $_GET["limit"]:'';
+        echo json_encode($cursos->listarCursos($limit));
+      }
     }
     break;
 
   case 'depoimentos':
-    if($method === 'GET'){
+    if ($method === 'GET') {
       echo json_encode($depoimentos->listarDepoimentos());
     }
     break;
 
   case 'contatos':
-    if($method === 'GET'){
+    if ($method === 'GET') {
       echo json_encode($contatos->listarContatos());
-    } elseif ($method === 'POST'){
+    } elseif ($method === 'POST') {
       $save = $contatos->salvarContatos([
         'nome' => $input['nome'],
         'email' => $input['email'],
