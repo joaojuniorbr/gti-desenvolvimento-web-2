@@ -1,4 +1,20 @@
 
+## v0.0.21
+
+### 56acc10 - Merge pull request #12 from joaojuniorbr/tma
+
+### 66c61e2 - Lista e criação de contatos
+
+### 5b10512 - Listagem de depoimentos
+
+### ac65983 - :sparkles: (auth) alteraçao na autenticação cross host
+
+### 4277780 - Listagem de cursos
+
+### 46e6d82 - :sparkles: (api) api do projeto tech manager academy
+
+### 340e48b - docs: update CHANGELOG.md for v0.0.20
+
 ## v0.0.20
 
 ### d9b697e - Merge pull request #11 from joaojuniorbr/aula-12
